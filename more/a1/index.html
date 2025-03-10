@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <a href="../index.html"><h2>🍔 Burger-Bestellung 🍔</h2></a>
+
+    <form action="bestellung.php" method="post">
+      <!-- Kundeninformationen -->
+      <label for="name">Name und Vorname</label>
+      <input type="text" id="name" name="name" required />
+      <br /><br />
+
+      <label for="email">E-Mail-Adresse</label>
+      <input type="email" id="email" name="email" required />
+      <br /><br />
+
+      <!-- Bestelldatum und -zeit -->
+      <label for="datum">Bestelldatum</label>
+      <input type="date" id="datum" name="datum" required />
+      <br /><br />
+
+      <label for="zeit">Bestellzeit</label>
+      <input type="time" id="zeit" name="zeit" required />
+      <br /><br />
+
+      <!-- Burger-Auswahl -->
+      <label for="burger">Wähle deinen Burger</label>
+      <select id="burger" name="burger">
+        <option value="cheeseburger">Cheeseburger</option>
+        <option value="veggie">Veggie-Burger</option>
+        <option value="doppelburger">Doppel-Burger</option>
+      </select>
+      <br /><br />
+
+      <!-- Garstufe des Burgers -->
+      <label>Garstufe des Patties</label><br />
+      <input type="radio" id="rare" name="garstufe" value="rare" />
+      <label for="rare">Rare</label>
+      <input type="radio" id="medium" name="garstufe" value="medium" />
+      <label for="medium">Medium</label>
+      <input type="radio" id="welldone" name="garstufe" value="welldone" />
+      <label for="welldone">Well Done</label>
+      <br /><br />
+
+      <!-- Zusätzliche Extras -->
+      <label>Extras (wähle beliebig viele)</label><br />
+      <input type="checkbox" id="kaese" name="extras[]" value="kaese" />
+      <label for="kaese">Käse</label>
+      <input type="checkbox" id="speck" name="extras[]" value="speck" />
+      <label for="speck">Speck</label>
+      <input type="checkbox" id="sauce" name="extras[]" value="sauce" />
+      <label for="sauce">Extra Sauce</label>
+      <br /><br />
+
+      <!-- Besondere Wünsche -->
+      <label for="wunsch">Spezialwünsche</label><br />
+      <textarea
+        id="wunsch"
+        name="wunsch"
+        rows="4"
+        cols="40"
+        placeholder="Schreibe hier deine Wünsche..."
+      ></textarea>
+      <br /><br />
+      <!-- Bestellung absenden -->
+      <input type="submit" value="Bestellung abschicken" />
+    </form>
+    <a href="./index.html"><button>Back</button></a>e
+  </body>
+</html>

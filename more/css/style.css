@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap");
+
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #0c0d17;
+  color: #ffffff;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #477aca;
+  object-fit: cover;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 400;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+h1 span {
+  color: #477aca;
+  font-weight: 700;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 50vh;
+  padding-top: 50px;
+}
+
+.projects {
+  background: #1a1c2b;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-left: 5px solid #477aca;
+}
+
+.projects h2 {
+  font-size: 1.8em;
+  color: #477aca;
+  margin-bottom: 20px;
+}
+
+.projects ul {
+  list-style-type: none;
+  padding: 20px;
+  text-align: left;
+  font-size: 1.2em;
+}
+
+.projects ul li {
+  margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.projects ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.projects ul li a:hover {
+  color: #477aca;
+  text-decoration: underline;
+}
+
+/* FOOTER */
+footer {
+  background: #0c0d17;
+  color: white;
+  padding: 20px;
+  font-size: 1em;
+  font-weight: 300;
+}
+/* Für kleinere Bildschirme (bis 768px) */
+@media (max-width: 768px) {
+  /* Header: Profilbild und Text untereinander */
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile img {
+    width: 100px;
+    height: 100px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h1 span {
+    font-size: 0.8em;
+  }
+
+  .projects {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .projects h2 {
+    font-size: 1.5em;
+  }
+
+  .projects ul {
+    font-size: 1em;
+    padding-left: 10px;
+  }
+
+  /* Footer kleiner */
+  footer {
+    font-size: 0.9em;
+    padding: 15px;
+  }
+}
+
+/* Für sehr kleine Bildschirme (bis 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .projects {
+    padding: 15px;
+  }
+
+  .projects h2 {
+    font-size: 1.3em;
+  }
+
+  .projects ul {
+    font-size: 0.9em;
+  }
+
+  footer {
+    font-size: 0.8em;
+  }
+}
