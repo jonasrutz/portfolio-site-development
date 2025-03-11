@@ -22,9 +22,8 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 900;
-  /* Removed text-align: center to keep navbar left-aligned */
 }
 
 .logo {
@@ -50,7 +49,6 @@ body {
   padding: 10px;
   border-radius: 5px;
   transition: background-color 0.3s;
-  /* Removed text-align: center to keep nav links left-aligned */
 }
 
 .nav-links a:hover {
@@ -94,32 +92,64 @@ body {
 
 /* Main content area */
 .content {
-  display: grid;
-  margin: 100px auto;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
   flex: 1;
   margin-left: 250px;
-  padding: 20px;
-  text-align: center; /* Center all text in the main content */
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 250px);
 }
 
-.content .head {
-  grid-row: 1 / 2;
-  font-size: 2em;
-}
-
-/* Center headings and paragraphs in the content */
-.content h1,
-.content h2,
-.content h3,
-.content h4,
-.content h5,
-.content h6,
-.content p {
+/* Portfolio header section */
+#portfolio-header {
+  padding: 30px 20px; /* Halbierter Abstand zwischen Header und erstem Dropdown */
   text-align: center;
+}
+
+#portfolio-header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+/* Portfolio sections */
+.portfolio-section {
+  width: 100%;
+  text-align: center;
+}
+
+/* Dropdown sections */
+.dropdown-section {
+  margin-bottom: 0; /* Kein Abstand zwischen den Dropdown-Sektionen */
+  background-color: #f5f5f5;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #2c3e50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dropdown-header h2 {
+  margin: 0;
+}
+
+.dropdown-header i {
+  transition: transform 0.4s ease;
+}
+
+.dropdown-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+  background-color: white;
+}
+
+.dropdown-section.active .dropdown-content {
+  max-height: 500px; /* Anpassen je nach Inhalt */
 }
 
 /* Mobile responsiveness */
@@ -145,7 +175,7 @@ body {
 /* Desktop view */
 @media screen and (min-width: 769px) {
   .sidebar {
-    transform: translateX(0); /* Always show sidebar on desktop */
+    transform: translateX(0); /* Sidebar immer auf Desktop anzeigen */
   }
 
   .sidebar.active {
