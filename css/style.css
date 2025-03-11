@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: transform 0.3s ease;
+  z-index: 900;
+  /* Removed text-align: center to keep navbar left-aligned */
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-top: 20px;
+}
+
+.nav-links {
+  list-style: none;
+  margin-bottom: auto;
+}
+
+.nav-links li {
+  margin-bottom: 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  /* Removed text-align: center to keep nav links left-aligned */
+}
+
+.nav-links a:hover {
+  background-color: #34495e;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 22px;
+}
+
+/* Hamburger menu icon */
+.hamburger-menu {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  cursor: pointer;
+  font-size: 24px;
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+/* Main content area */
+.content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 20px;
+  text-align: center; /* Center all text in the main content */
+}
+
+/* Center headings and paragraphs in the content */
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.content p {
+  text-align: center;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  .content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+/* Desktop view */
+@media screen and (min-width: 769px) {
+  .sidebar {
+    transform: translateX(0); /* Always show sidebar on desktop */
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+}

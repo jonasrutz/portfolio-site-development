@@ -5,6 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfoliosite from Jonas</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
-  <body></body>
+  <body>
+    <!-- Hamburger menu button (visible only on mobile) -->
+    <div class="hamburger-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    
+    <!-- Sidebar navigation -->
+    <nav class="sidebar">
+      <div class="logo">
+        <h2>Jonas</h2>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="social-icons">
+        <a href="https://github.com/jonasrutz" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/jonas-rutz-711903346/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:jonas.rutz@ksb-sg.ch" target="_blank"><i class="fas fa-envelope"></i></a>
+      </div>
+    </nav>
+    
+    <!-- Main content area -->
+    <main class="content">
+      <section id="home">
+        <h1>Welcome to my Portfolio</h1>
+        <p>This is a sample content section. Your main content will go here.</p>
+      </section>
+    </main>
+
+    <script>
+      // Toggle sidebar on hamburger menu click
+      document.querySelector('.hamburger-menu').addEventListener('click', function() {
+        document.querySelector('.sidebar').classList.toggle('active');
+      });
+      
+      // Check window width and add/remove active class accordingly
+      function checkWidth() {
+        if (window.innerWidth <= 768) {
+          document.querySelector('.sidebar').classList.remove('active');
+        } else {
+          document.querySelector('.sidebar').classList.add('active');
+        }
+      }
+      
+      // Run on page load
+      checkWidth();
+      
+      // Run when window is resized
+      window.addEventListener('resize', checkWidth);
+    </script>
+  </body>
 </html>
