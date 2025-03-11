@@ -95,10 +95,20 @@ body {
 /* Main content area */
 .content {
   display: grid;
+  margin: 100px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
   flex: 1;
   margin-left: 250px;
   padding: 20px;
   text-align: center; /* Center all text in the main content */
+}
+
+.content .head {
+  grid-row: 1 / 2;
+  font-size: 2em;
 }
 
 /* Center headings and paragraphs in the content */
