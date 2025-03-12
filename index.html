@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfoliosite from Jonas</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style_portfolio.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -12,71 +12,454 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
   <body>
-    <!-- Hamburger menu button (visible only on mobile) -->
-    <div class="hamburger-menu">
-      <i class="fas fa-bars"></i>
-    </div>
-
-    <!-- Sidebar navigation -->
-    <nav class="sidebar">
+    <!-- Top navigation bar -->
+    <header class="top-nav">
       <div class="logo">
         <h2>Jonas</h2>
       </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
 
-      <div class="social-icons-container">
-        <div class="social-icons">
-          <a href="https://github.com/jonasrutz" target="_blank"
-            ><i class="fab fa-github"></i
-          ></a>
-          <a
-            href="https://www.linkedin.com/in/jonas-rutz-711903346/"
-            target="_blank"
-            ><i class="fab fa-linkedin"></i
-          ></a>
-          <a href="mailto:jonas.rutz@ksb-sg.ch" target="_blank"
-            ><i class="fas fa-envelope"></i
-          ></a>
-        </div>
+      <!-- Hamburger menu button (visible only on mobile) -->
+      <div class="hamburger-menu">
+        <i class="fas fa-bars"></i>
       </div>
-    </nav>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <!-- Main content area -->
     <main class="content">
-      <section id="home">
-        <h1>Welcome to my Portfolio</h1>
-        <p>This is a sample content section. Your main content will go here.</p>
+      <!-- Home Section -->
+      <section id="home" class="section">
+        <div class="section-content home-content">
+          <div class="home-text">
+            <h1 class="fade-in">Welcome to my Portfolio</h1>
+            <p class="fade-in delay-1">
+              Hi, I'm Jonas. A passionate developer focused on creating elegant
+              solutions.
+            </p>
+            <div class="cta-buttons fade-in delay-2">
+              <a href="#about" class="btn primary-btn">Learn More</a>
+              <a href="#contact" class="btn secondary-btn">Contact Me</a>
+            </div>
+          </div>
+          <div class="home-image fade-in slide-in-right">
+            <img
+              src="img/portfolio-portrait-white.jpg"
+              alt="Jonas Portrait"
+              class="portrait-img light-mode-img"
+            />
+            <img
+              src="img/portfolio-portrait-dark.png"
+              alt="Jonas Portrait (Dark Mode)"
+              class="portrait-img dark-mode-img"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="section">
+        <div class="section-content">
+          <h2 class="fade-in">About Me</h2>
+          <div class="about-container">
+            <div class="about-profile fade-in delay-1">
+              <div class="profile-header">
+                <h3 class="profile-title">
+                  I'm Jonas Rutz and
+                  <span class="highlight">Web-Developer</span>
+                </h3>
+              </div>
+
+              <div class="profile-description">
+                <p>
+                  My name is Jonas Rutz. I am 16 years old, and I have been
+                  studying at the IMS in St. Gallen since summer 2023. The IMS
+                  program focuses on IT and gives me the chance to explore my
+                  interest in computer science and technology. Besides my
+                  studies, I am very passionate about sports and e-sports.
+                  Physical activity and competition keep me motivated, and in
+                  e-sports, I enjoy the strategic challenges and skills it
+                  requires. Both areas push me to improve and grow, balancing my
+                  school life and personal interests.
+                </p>
+              </div>
+
+              <div class="profile-details">
+                <div class="details-grid">
+                  <div class="detail-item">
+                    <span class="detail-label">Birthday:</span>
+                    <span class="detail-value">16 jun 2008</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-label">Age:</span>
+                    <span class="detail-value">16</span>
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-label">Website:</span>
+                    <span class="detail-value"
+                      ><a href="https://jonasrutz.ch/" target="_blank"
+                        >https://jonasrutz.ch/</a
+                      ></span
+                    >
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-label">Email:</span>
+                    <span class="detail-value"
+                      ><a href="mailto:jonas.rutz@bluewin.ch"
+                        >jonas.rutz@bluewin.ch</a
+                      ></span
+                    >
+                  </div>
+                  <div class="detail-item">
+                    <span class="detail-label">City:</span>
+                    <span class="detail-value">St. Gallen</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="profile-cta">
+                <a
+                  href="CV/Lebenslauf_Jonas.pdf"
+                  download
+                  class="btn primary-btn cv-download-btn"
+                >
+                  <i class="fas fa-download"></i> Download CV
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="section">
+        <div class="section-content">
+          <h2 class="fade-in">Portfolio</h2>
+
+          <!-- Aufträge section with dropdown -->
+          <section class="portfolio-section dropdown-section fade-in delay-1">
+            <div class="dropdown-header">
+              <h2 class="dropdown-title">Aufträge</h2>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="dropdown-content">
+              <div class="card-container">
+                <div class="card scale-in">
+                  <div
+                    class="card-image"
+                    style="background-image: url('/api/placeholder/400/150')"
+                  ></div>
+                  <div class="card-content">
+                    <h3 class="card-title">Auftrag 1</h3>
+                    <p class="card-description">
+                      Beschreibung des ersten Auftrags
+                    </p>
+                  </div>
+                </div>
+                <div class="card scale-in delay-1">
+                  <div
+                    class="card-image"
+                    style="background-image: url('/api/placeholder/400/150')"
+                  ></div>
+                  <div class="card-content">
+                    <h3 class="card-title">Auftrag 2</h3>
+                    <p class="card-description">
+                      Beschreibung des zweiten Auftrags
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- IMS section with dropdown -->
+          <section class="portfolio-section dropdown-section fade-in delay-2">
+            <div class="dropdown-header">
+              <h2 class="dropdown-title">IMS</h2>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="dropdown-content">
+              <div class="card-container">
+                <div class="card scale-in">
+                  <div
+                    class="card-image"
+                    style="background-image: url('/api/placeholder/400/150')"
+                  ></div>
+                  <div class="card-content">
+                    <h3 class="card-title">IMS Projekt 1</h3>
+                    <p class="card-description">
+                      Beschreibung des ersten IMS Projekts
+                    </p>
+                  </div>
+                </div>
+                <div class="card scale-in delay-1">
+                  <div
+                    class="card-image"
+                    style="background-image: url('/api/placeholder/400/150')"
+                  ></div>
+                  <div class="card-content">
+                    <h3 class="card-title">IMS Projekt 2</h3>
+                    <p class="card-description">
+                      Beschreibung des zweiten IMS Projekts
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="section">
+        <div class="section-content">
+          <h2 class="fade-in">My Skills</h2>
+          <div class="skills-container">
+            <div class="skill-category slide-in-left delay-1">
+              <h3>Programming Languages</h3>
+              <div class="skill-items">
+                <div class="skill-item">
+                  <i class="fab fa-html5"></i>
+                  <span>HTML</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fab fa-css3-alt"></i>
+                  <span>CSS</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fab fa-js"></i>
+                  <span>JavaScript</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fab fa-python"></i>
+                  <span>Python</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-category slide-in-right delay-2">
+              <h3>Frameworks & Tools</h3>
+              <div class="skill-items">
+                <div class="skill-item">
+                  <i class="fab fa-react"></i>
+                  <span>React</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fab fa-node-js"></i>
+                  <span>Node.js</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fab fa-git-alt"></i>
+                  <span>Git</span>
+                </div>
+                <div class="skill-item">
+                  <i class="fas fa-database"></i>
+                  <span>SQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section">
+        <div class="section-content">
+          <h2 class="fade-in">Get In Touch</h2>
+          <div class="contact-container">
+            <div class="contact-info slide-in-left delay-1">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:jonas.rutz@ksb-sg.ch" class="contact-link"
+                  >E-Mail</a
+                >
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <a
+                  href="https://github.com/jonasrutz"
+                  target="_blank"
+                  class="contact-link"
+                  >Github</a
+                >
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a
+                  href="https://www.linkedin.com/in/jonas-rutz-711903346/"
+                  target="_blank"
+                  class="contact-link"
+                  >linkedin</a
+                >
+              </div>
+            </div>
+
+            <div class="contact-form slide-in-right delay-2">
+              <form>
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" required />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="message">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn primary-btn">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
+    <!-- Footer with copyright -->
+    <footer class="footer fade-in">
+      <div class="copyright">
+        &copy; <span id="current-year"></span> Jonas Rutz. All rights reserved.
+      </div>
+    </footer>
+
     <script>
-      // Toggle sidebar on hamburger menu click
+      // Set current year for copyright
+      document.getElementById("current-year").textContent =
+        new Date().getFullYear();
+
+      // Toggle navigation on hamburger menu click
       document
         .querySelector(".hamburger-menu")
         .addEventListener("click", function () {
-          document.querySelector(".sidebar").classList.toggle("active");
+          document.querySelector(".main-nav").classList.toggle("active");
         });
 
-      // Check window width and add/remove active class accordingly
-      function checkWidth() {
-        if (window.innerWidth <= 768) {
-          document.querySelector(".sidebar").classList.remove("active");
-        } else {
-          document.querySelector(".sidebar").classList.add("active");
+      // Scroll animation observer
+      const appearOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -100px 0px",
+      };
+
+      // Observer for when elements enter the viewport
+      const appearOnScroll = new IntersectionObserver(function (
+        entries,
+        appearOnScroll
+      ) {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          } else {
+            entry.target.classList.add("appear");
+          }
+        });
+      },
+      appearOptions);
+
+      // Observer for when elements leave the viewport
+      const disappearOnScroll = new IntersectionObserver(
+        function (entries) {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+              // Reset animation when element is out of view
+              entry.target.classList.remove("appear");
+            }
+          });
+        },
+        {
+          threshold: 0,
+          rootMargin: "0px 0px 0px 0px",
         }
+      );
+
+      // Get all elements with animation classes
+      const animatedElements = document.querySelectorAll(
+        ".fade-in, .slide-in-left, .slide-in-right, .scale-in"
+      );
+
+      // Observe elements for both appearing and disappearing
+      animatedElements.forEach((element) => {
+        appearOnScroll.observe(element);
+        disappearOnScroll.observe(element);
+      });
+
+      // Add appear class to initial visible elements
+      function handleInitialAnimations() {
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        animatedElements.forEach((element) => {
+          const elementTop = element.getBoundingClientRect().top + scrollTop;
+          if (elementTop < scrollTop + windowHeight * 0.85) {
+            element.classList.add("appear");
+          }
+        });
       }
 
-      // Run on page load
-      checkWidth();
+      // Run on page load after a small delay
+      setTimeout(handleInitialAnimations, 100);
 
-      // Run when window is resized
-      window.addEventListener("resize", checkWidth);
+      // Reset animations when scrolling back to top
+      window.addEventListener("scroll", function () {
+        if (window.scrollY < 100) {
+          // When near the top of the page, ensure home section animations are visible
+          const homeElements = document.querySelectorAll(
+            "#home .fade-in, #home .slide-in-left, #home .slide-in-right, #home .scale-in"
+          );
+          homeElements.forEach((element) => {
+            element.classList.add("appear");
+          });
+        }
+      });
+
+      // Dropdown functionality for portfolio sections
+      const dropdownHeaders = document.querySelectorAll(".dropdown-header");
+
+      dropdownHeaders.forEach((header) => {
+        header.addEventListener("click", function () {
+          const section = this.parentElement;
+
+          section.classList.toggle("active");
+
+          const icon = this.querySelector("i");
+
+          if (section.classList.contains("active")) {
+            icon.style.transform = "rotate(180deg)";
+          } else {
+            icon.style.transform = "rotate(0deg)";
+          }
+        });
+      });
+
+      // Card click functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".card");
+
+        cards.forEach((card) => {
+          card.addEventListener("click", function () {
+            // Remove active class from all cards
+            cards.forEach((c) => c.classList.remove("active"));
+
+            // Add active class to the clicked card
+            this.classList.add("active");
+          });
+        });
+      });
     </script>
   </body>
 </html>
