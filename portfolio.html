@@ -35,7 +35,7 @@
           <a href="https://github.com/jonasrutz" target="_blank"
             ><i class="fab fa-github"></i
           ></a>
-          <av
+          <a
             href="https://www.linkedin.com/in/jonas-rutz-711903346/"
             target="_blank"
             ><i class="fab fa-linkedin"></i
@@ -61,7 +61,30 @@
           <i class="fas fa-chevron-down"></i>
         </div>
         <div class="dropdown-content">
-          <!-- Content goes here -->
+          <div class="card-container">
+            <div class="card">
+              <div
+                class="card-image"
+                style="background-image: url('/api/placeholder/400/150')"
+              ></div>
+              <div class="card-content">
+                <h3 class="card-title">Auftrag 1</h3>
+                <p class="card-description">Beschreibung des ersten Auftrags</p>
+              </div>
+            </div>
+            <div class="card">
+              <div
+                class="card-image"
+                style="background-image: url('/api/placeholder/400/150')"
+              ></div>
+              <div class="card-content">
+                <h3 class="card-title">Auftrag 2</h3>
+                <p class="card-description">
+                  Beschreibung des zweiten Auftrags
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -72,20 +95,43 @@
           <i class="fas fa-chevron-down"></i>
         </div>
         <div class="dropdown-content">
-          <!-- Content goes here -->
+          <div class="card-container">
+            <div class="card">
+              <div
+                class="card-image"
+                style="background-image: url('/api/placeholder/400/150')"
+              ></div>
+              <div class="card-content">
+                <h3 class="card-title">IMS Projekt 1</h3>
+                <p class="card-description">
+                  Beschreibung des ersten IMS Projekts
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <div
+                class="card-image"
+                style="background-image: url('/api/placeholder/400/150')"
+              ></div>
+              <div class="card-content">
+                <h3 class="card-title">IMS Projekt 2</h3>
+                <p class="card-description">
+                  Beschreibung des zweiten IMS Projekts
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <script>
-      // Toggle sidebar on hamburger menu click
       document
         .querySelector(".hamburger-menu")
         .addEventListener("click", function () {
           document.querySelector(".sidebar").classList.toggle("active");
         });
 
-      // Check window width and add/remove active class accordingly
       function checkWidth() {
         if (window.innerWidth <= 768) {
           document.querySelector(".sidebar").classList.remove("active");
@@ -94,29 +140,39 @@
         }
       }
 
-      // Run on page load
       checkWidth();
 
-      // Run when window is resized
       window.addEventListener("resize", checkWidth);
 
-      // Handle dropdown sections
       const dropdownHeaders = document.querySelectorAll(".dropdown-header");
 
       dropdownHeaders.forEach((header) => {
         header.addEventListener("click", function () {
           const section = this.parentElement;
+
           section.classList.toggle("active");
 
-          // Get the icon element inside this header
           const icon = this.querySelector("i");
 
-          // Toggle icon rotation
           if (section.classList.contains("active")) {
             icon.style.transform = "rotate(180deg)";
           } else {
             icon.style.transform = "rotate(0deg)";
           }
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const cards = document.querySelectorAll(".card");
+
+        cards.forEach((card) => {
+          card.addEventListener("click", function () {
+            // Remove active class from all cards
+            cards.forEach((c) => c.classList.remove("active"));
+
+            // Add active class to the clicked card
+            this.classList.add("active");
+          });
         });
       });
     </script>

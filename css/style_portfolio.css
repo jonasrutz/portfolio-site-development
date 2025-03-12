@@ -97,11 +97,12 @@ body {
   display: flex;
   flex-direction: column;
   width: calc(100% - 250px);
+  padding: 0 20px; /* Add left and right padding */
 }
 
 /* Portfolio header section */
 #portfolio-header {
-  padding: 30px 20px; /* Halbierter Abstand zwischen Header und erstem Dropdown */
+  padding: 30px 20px;
   text-align: center;
 }
 
@@ -118,7 +119,7 @@ body {
 
 /* Dropdown sections */
 .dropdown-section {
-  margin-bottom: 0; /* Kein Abstand zwischen den Dropdown-Sektionen */
+  margin-bottom: 20px; /* Add margin between dropdown sections */
   background-color: #f5f5f5;
 }
 
@@ -149,7 +150,60 @@ body {
 }
 
 .dropdown-section.active .dropdown-content {
-  max-height: 500px; /* Anpassen je nach Inhalt */
+  max-height: 1000px; /* Increased to accommodate cards */
+  padding: 20px; /* Add padding to the content when visible */
+}
+
+/* Card Container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  gap: 20px;
+  width: 100%;
+}
+
+/* Card styling */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  height: 250px; /* Fixed height for cards */
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card.active {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.card-image {
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.card-description {
+  font-size: 14px;
+  color: #666;
 }
 
 /* Mobile responsiveness */
@@ -170,12 +224,16 @@ body {
     margin-left: 0;
     width: 100%;
   }
+
+  .card-container {
+    grid-template-columns: 1fr; /* 1 card per row on mobile */
+  }
 }
 
 /* Desktop view */
 @media screen and (min-width: 769px) {
   .sidebar {
-    transform: translateX(0); /* Sidebar immer auf Desktop anzeigen */
+    transform: translateX(0); /* Always show sidebar on desktop */
   }
 
   .sidebar.active {
