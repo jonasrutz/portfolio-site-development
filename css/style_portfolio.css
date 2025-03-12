@@ -899,3 +899,127 @@ body {
     display: none;
   }
 }
+
+/* Form submission message */
+.form-submit-message {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgba(52, 152, 219, 0.1);
+  border-left: 4px solid var(--accent-color);
+  display: none;
+}
+
+.form-submit-message p {
+  color: var(--accent-color);
+  font-weight: bold;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.form-submit-message.show {
+  display: block;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Password Modal Styles */
+.password-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.password-modal-content {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+  color: var(--accent-color);
+}
+
+.password-modal h3 {
+  color: var(--heading-color);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.password-modal p {
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.password-form input {
+  padding: 12px 15px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.password-form input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.password-form button {
+  margin-top: 5px;
+}
+
+.password-error {
+  color: #e74c3c !important;
+  font-size: 0.9rem !important;
+  margin-top: 15px !important;
+  text-align: center;
+  min-height: 20px;
+}
+
+/* Mobile adjustments for password modal */
+@media screen and (max-width: 768px) {
+  .password-modal-content {
+    width: 95%;
+    padding: 20px;
+  }
+}
