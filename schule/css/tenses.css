@@ -1,0 +1,957 @@
+/* Advanced styling for the English tenses page */
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Page structure */
+.intro {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  animation: fadeIn 0.5s ease-in-out;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem;
+  background-color: var(--section-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.intro h2 {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1.2rem;
+}
+
+.intro h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-color),
+    #2980b9,
+    var(--accent-color)
+  );
+  background-size: 200% 200%;
+  animation: gradientShift 3s ease infinite;
+  border-radius: 3px;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Sticky navigation */
+.tense-navigation-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-color);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  border-radius: 0 0 10px 10px;
+}
+
+.tense-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Navigation styling */
+nav a.tense-nav {
+  position: relative;
+  font-weight: bold;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 120px;
+}
+
+nav a.tense-nav:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+nav a.tense-nav.active {
+  background-color: var(--accent-color);
+  color: white;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* Navigation styling - updated for centered horizontal nav */
+.main-nav {
+  position: relative;
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  padding: 1rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px; /* Limit width to keep it centered */
+  padding: 0 15px;
+}
+
+/* Search bar */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  display: flex;
+  max-width: 500px;
+  width: 100%;
+  background-color: var(--card-bg);
+  border-radius: 30px;
+  padding: 0.3rem;
+  box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-button {
+  background-color: var(--accent-color);
+  border: none;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+/* Section styling */
+.tense-section {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
+  padding-bottom: 3rem;
+}
+
+.tense-section.active {
+  display: block;
+}
+
+.tense-section h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.tense-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--accent-color);
+  border-radius: 3px;
+}
+
+/* Tense cards grid for larger screens */
+.tense-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Tense card styling */
+.tense-card {
+  background-color: var(--card-bg);
+  border-radius: 10px;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border-top: 3px solid var(--accent-color);
+  animation: slideInRight 0.5s ease-in-out;
+}
+
+.tense-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px var(--shadow-hover);
+}
+
+.tense-card.expanded {
+  box-shadow: 0 12px 24px var(--shadow-hover);
+}
+
+.tense-card h3 {
+  background-color: var(--nav-bg);
+  color: white;
+  padding: 1.2rem;
+  margin: 0;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  border-left: 4px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tense-card:nth-child(1) h3 {
+  border-left-color: #3498db;
+}
+.tense-card:nth-child(2) h3 {
+  border-left-color: #2ecc71;
+}
+.tense-card:nth-child(3) h3 {
+  border-left-color: #e74c3c;
+}
+.tense-card:nth-child(4) h3 {
+  border-left-color: #f39c12;
+}
+.tense-card:nth-child(5) h3 {
+  border-left-color: #9b59b6;
+}
+.tense-card:nth-child(6) h3 {
+  border-left-color: #1abc9c;
+}
+
+.tense-card h3::after {
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-left: 15px;
+  transition: transform 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.tense-card.expanded h3::after {
+  transform: rotate(180deg);
+}
+
+.tense-card .example {
+  font-size: 1rem;
+  opacity: 0.95;
+  font-style: italic;
+  margin-left: auto;
+  padding-left: 1.2rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: normal;
+}
+
+.tense-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s cubic-bezier(0, 1, 0, 1);
+}
+
+.tense-card.expanded .tense-content {
+  max-height: 2500px;
+  transition: max-height 1s ease-in-out;
+  padding: 1.8rem;
+}
+
+/* Content styling */
+.tense-content h4 {
+  color: var(--accent-color);
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  position: relative;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+
+.tense-content h4::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent-color);
+  opacity: 0.5;
+}
+
+.tense-content p {
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+}
+
+.tense-content ul {
+  margin-left: 1.8rem;
+  margin-bottom: 1.2rem;
+  list-style-type: none;
+}
+
+.tense-content li {
+  margin-bottom: 0.8rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.tense-content li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.form,
+.usage,
+.examples,
+.signal-words {
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 6px var(--shadow-color);
+}
+
+/* Tense content sections with unique styling */
+.form {
+  background-color: rgba(52, 152, 219, 0.08);
+  padding: 1.2rem;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+}
+
+.form h4 {
+  color: #3498db;
+}
+
+.form h4::after {
+  background-color: #3498db;
+}
+
+.usage {
+  background-color: rgba(46, 204, 113, 0.08);
+  padding: 1.2rem;
+  border-radius: 8px;
+  border-left: 4px solid #2ecc71;
+}
+
+.usage h4 {
+  color: #2ecc71;
+}
+
+.usage h4::after {
+  background-color: #2ecc71;
+}
+
+.examples {
+  background-color: rgba(155, 89, 182, 0.08);
+  padding: 1.2rem;
+  border-radius: 8px;
+  border-left: 4px solid #9b59b6;
+}
+
+.examples h4 {
+  color: #9b59b6;
+}
+
+.examples h4::after {
+  background-color: #9b59b6;
+}
+
+.signal-words {
+  background-color: rgba(243, 156, 18, 0.08);
+  padding: 1.2rem;
+  border-radius: 8px;
+  border-left: 4px solid #f39c12;
+}
+
+.signal-words h4 {
+  color: #f39c12;
+}
+
+.signal-words h4::after {
+  background-color: #f39c12;
+}
+
+/* Highlight verb forms in examples */
+.examples b {
+  color: #9b59b6;
+  font-weight: 600;
+  position: relative;
+  padding: 0 3px;
+}
+
+.examples b::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(155, 89, 182, 0.3);
+  border-radius: 2px;
+}
+
+/* Tense navigator - compare button */
+.tense-tools {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.compare-btn,
+.print-btn {
+  background-color: var(--nav-bg);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.compare-btn:hover,
+.print-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 12px var(--shadow-hover);
+  background-color: var(--accent-color);
+}
+
+.compare-btn i,
+.print-btn i {
+  font-size: 1.2rem;
+}
+
+/* Common mistakes section */
+.common-mistakes {
+  background-color: rgba(231, 76, 60, 0.08);
+  padding: 1.2rem;
+  border-radius: 8px;
+  border-left: 4px solid #e74c3c;
+  margin-top: 1rem;
+}
+
+.common-mistakes h4 {
+  color: #e74c3c;
+}
+
+.common-mistakes h4::after {
+  background-color: #e74c3c;
+}
+
+/* Tips and hints */
+.tip {
+  background-color: rgba(52, 152, 219, 0.08);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  position: relative;
+  padding-left: 3rem;
+}
+
+.tip::before {
+  content: "\f0eb";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  color: #3498db;
+  font-size: 1.2rem;
+}
+
+/* Celebration message */
+.celebration-message.show {
+  transform: scale(1);
+  animation: bounce 0.6s ease;
+}
+
+/* Tense navigator - compare button */
+.tense-tools {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.compare-btn,
+.print-btn {
+  background-color: var(--nav-bg);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.compare-btn:hover,
+.print-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 12px var(--shadow-hover);
+  background-color: var(--accent-color);
+}
+
+.compare-btn i,
+.print-btn i {
+  font-size: 1.2rem;
+}
+
+/* Hamburger menu styles */
+.hamburger-icon {
+  display: none;
+  cursor: pointer;
+  padding: 15px;
+  z-index: 100;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 30px;
+  height: 3px;
+  background-color: var(--nav-text);
+  margin: 6px 0;
+  transition: 0.4s;
+  border-radius: 2px;
+}
+
+/* Hamburger menu styles - fixed visibility */
+.hamburger-icon {
+  display: none;
+  cursor: pointer;
+  padding: 15px;
+  z-index: 100;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 30px;
+  height: 3px;
+  background-color: var(--nav-text);
+  margin: 6px 0;
+  transition: 0.4s;
+  border-radius: 2px;
+  display: block !important; /* Force display of all bars */
+}
+
+/* Remove the X animation for hamburger when active */
+.hamburger-icon.active .bar1 {
+  transform: none;
+  background-color: white;
+}
+
+.hamburger-icon.active .bar2 {
+  opacity: 1; /* Keep middle bar visible */
+  background-color: white;
+}
+
+.hamburger-icon.active .bar3 {
+  transform: none;
+  background-color: white;
+}
+
+/* Hamburger animation */
+.hamburger-icon.active .bar1 {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.hamburger-icon.active .bar2 {
+  opacity: 0;
+}
+
+.hamburger-icon.active .bar3 {
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+
+/* Responsive design */
+@media screen and (max-width: 1200px) {
+  .tense-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .hamburger-icon {
+    display: block !important; /* Force display with !important */
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 999; /* Very high z-index to ensure visibility */
+    background-color: transparent;
+  }
+
+  .main-nav {
+    padding: 15px 0;
+    min-height: 50px; /* Ensure minimum height for nav bar */
+    justify-content: center;
+    position: relative;
+  }
+
+  nav a.tense-nav {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    min-width: 100px;
+  }
+
+  .tense-card h3 {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+
+  .tense-card .example {
+    font-size: 0.85rem;
+    padding-left: 0.8rem;
+  }
+
+  .tense-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .tense-tools {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .compare-btn,
+  .print-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 0.5rem;
+  }
+
+  .search-input {
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+
+  .hamburger-icon {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 101; /* Increased z-index to ensure visibility */
+  }
+
+  .main-nav {
+    padding: 15px 0;
+    justify-content: center;
+    position: relative;
+    /* Make sure navigation bar is always visible on mobile */
+    display: flex !important;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: fixed; /* Changed from absolute to fixed for full-screen overlay */
+    background-color: var(--nav-bg);
+    top: 0;
+    right: 0; /* Menu will come from right side */
+    bottom: 0;
+    width: 250px; /* Fixed width for the menu */
+    padding: 60px 0 0; /* Add padding top for the hamburger icon */
+    max-height: 100vh;
+    overflow-y: auto;
+    transform: translateX(100%); /* Start off-screen to the right */
+    transition: transform 0.3s ease-out;
+    box-shadow: -4px 0 8px var(--shadow-color);
+    z-index: 98;
+    gap: 0; /* Reset gap for mobile */
+    max-width: none; /* Reset max-width for mobile */
+  }
+
+  /* Add additional styles to ensure bars are visible */
+  .bar1,
+  .bar2,
+  .bar3 {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* When hamburger is shown, hide navigation text */
+  .main-nav .nav-title {
+    display: none;
+  }
+
+  .nav-links.show {
+    transform: translateX(0); /* Slide in from right */
+  }
+
+  /* When menu is open, add overlay to the rest of the screen */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 97;
+  }
+
+  .nav-overlay.active {
+    display: block;
+  }
+
+  .nav-links a {
+    padding: 15px;
+    margin: 0;
+    text-align: left;
+    padding-left: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Hide intro section and header when menu is open */
+  body.menu-open .intro,
+  body.menu-open .search-container,
+  body.menu-open .tense-section,
+  body.menu-open footer {
+    display: none;
+  }
+
+  /* Make hamburger icon color white when menu is open for better visibility */
+  body.menu-open .hamburger-icon .bar1,
+  body.menu-open .hamburger-icon .bar2,
+  body.menu-open .hamburger-icon .bar3 {
+    background-color: white;
+  }
+
+  /* Prevent card overflow on mobile */
+  .tense-card .example {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .intro h2 {
+    font-size: 1.8rem;
+  }
+
+  .intro p {
+    font-size: 1rem;
+  }
+
+  .tense-navigation {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav a.tense-nav {
+    width: 100%;
+  }
+
+  .tense-card.expanded .tense-content {
+    padding: 1.2rem;
+  }
+
+  .form,
+  .usage,
+  .examples,
+  .signal-words {
+    padding: 1rem;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .form {
+    background-color: rgba(52, 152, 219, 0.15);
+  }
+
+  .usage {
+    background-color: rgba(46, 204, 113, 0.15);
+  }
+
+  .examples {
+    background-color: rgba(155, 89, 182, 0.15);
+  }
+
+  .signal-words {
+    background-color: rgba(243, 156, 18, 0.15);
+  }
+
+  .common-mistakes {
+    background-color: rgba(231, 76, 60, 0.15);
+  }
+
+  .tip {
+    background-color: rgba(52, 152, 219, 0.15);
+  }
+}
+
+/* Print styling */
+@media print {
+  body,
+  html {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+  }
+
+  header,
+  nav,
+  footer,
+  .tense-tools,
+  .search-container,
+  .print-btn,
+  .compare-btn {
+    display: none !important;
+  }
+
+  .tense-section {
+    display: block !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 20px;
+  }
+
+  .tense-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #ddd;
+    box-shadow: none !important;
+    margin-bottom: 15px;
+  }
+
+  .tense-content {
+    max-height: none !important;
+    display: block !important;
+    padding: 15px !important;
+  }
+
+  .tense-card h3::after {
+    display: none;
+  }
+
+  h2,
+  h3,
+  h4 {
+    color: black !important;
+  }
+
+  .examples b {
+    color: black !important;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .examples b::after {
+    display: none;
+  }
+}

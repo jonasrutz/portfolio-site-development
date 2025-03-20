@@ -139,6 +139,28 @@
         </div>
       </section>
 
+      <!-- CV Password Modal -->
+      <div id="passwordModal" class="password-modal">
+        <div class="password-modal-content">
+          <span class="close-modal">&times;</span>
+          <h3>Password Required</h3>
+          <p>
+            Bitte geben Sie das Passwort ein, um den Lebenslauf herunterzuladen.
+          </p>
+          <div class="password-form">
+            <input
+              type="password"
+              id="cvPassword"
+              placeholder="Passwort eingeben"
+            />
+            <button id="submitPassword" class="btn primary-btn">
+              Bestätigen
+            </button>
+          </div>
+          <p id="passwordError" class="password-error"></p>
+        </div>
+      </div>
+
       <!-- Portfolio Section -->
       <section id="portfolio" class="section">
         <div class="section-content">
@@ -171,9 +193,10 @@
                     style="background-image: url('/api/placeholder/400/150')"
                   ></div>
                   <div class="card-content">
-                    <h3 class="card-title">School Assignment</h3>
+                    <h3 class="card-title">My fi</h3>
                     <p class="card-description">
-                      A project completed as part of my IMS coursework
+                      A project completed as part of my IMS Module. The Module
+                      was about deeping our HTML and CSS knowlage
                     </p>
                   </div>
                 </div>
@@ -273,28 +296,6 @@
         <div class="section-content">
           <h2 class="fade-in">Get In Touch</h2>
           <div class="contact-container">
-            <div class="contact-info slide-in-left delay-1">
-              <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:jonas.rutz@bluewin.ch" class="contact-link"
-                  >jonas.rutz@bluewin.ch</a
-                >
-              </div>
-              <div class="contact-item">
-                <i class="fab fa-github"></i>
-                <a
-                  href="https://github.com/jonasrutz"
-                  target="_blank"
-                  class="contact-link"
-                  >github.com/jonasrutz</a
-                >
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-school"></i>
-                <span class="contact-link">IMS St. Gallen</span>
-              </div>
-            </div>
-
             <div class="contact-form slide-in-right delay-2">
               <form
                 id="contactForm"
@@ -333,8 +334,33 @@
 
     <!-- Footer with copyright -->
     <footer class="footer fade-in">
-      <div class="copyright">
-        &copy; <span id="current-year"></span> Jonas Rutz. All rights reserved.
+      <div class="footer-content">
+        <div class="social-links">
+          <a href="mailto:jonas.rutz@bluewin.ch" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+          <a
+            href="https://github.com/jonasrutz"
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/jonas-rutz-711903346/"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.ksb-sg.ch/" target="_blank" aria-label="School">
+            <i class="fas fa-school"></i>
+          </a>
+        </div>
+        <div class="copyright">
+          &copy; <span id="current-year"></span> Jonas Rutz. All rights
+          reserved.
+        </div>
       </div>
     </footer>
 
