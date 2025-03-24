@@ -215,6 +215,60 @@ h2 {
   border: 1px solid var(--border-color);
 }
 
+/* Subject status indicators */
+.subject-card {
+  position: relative;
+}
+
+/* Status indicators - position appropriately */
+.subject-card::before {
+  content: attr(data-status);
+  position: absolute;
+  top: 0;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* Remove finished border from English */
+.subject-card[data-status="fertig"] {
+  border: none;
+}
+
+/* New status - Green border and left position */
+.subject-card[data-status="neu"] {
+  border: 3px solid #2ecc71;
+}
+
+.subject-card[data-status="neu"]::before {
+  left: 0; /* Changed from right to left */
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 10px 0 10px 0; /* Adjusted border radius for left position */
+}
+
+/* In progress status - Left position */
+.subject-card[data-status="in bearbeitung"] {
+  border: 3px solid #e74c3c;
+}
+
+.subject-card[data-status="in bearbeitung"]::before {
+  left: 0;
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 10px 0 10px 0;
+}
+
+/* Remove border and status indicator from English card */
+.subject-card#englisch {
+  border: none !important;
+}
+
+.subject-card#englisch::before {
+  display: none !important;
+}
+
 .subject-card:hover,
 .subject-card.hover {
   transform: translateY(-12px) scale(1.02);
@@ -334,6 +388,31 @@ h2 {
   font-size: 0.8rem;
   border-radius: 0 4px 4px 0;
   z-index: 2;
+}
+
+.title-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title-section .header-icon {
+  font-size: 2.5rem;
+  color: var(--accent-color);
+  background: rgba(52, 152, 219, 0.1);
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1rem;
+}
+
+.title-section h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--heading-color);
 }
 
 footer {

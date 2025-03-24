@@ -9,6 +9,7 @@
     />
     <title>Englisch Zeitformen | Cambridge B2 Niveau</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/construction.css" />
     <link rel="stylesheet" href="css/tenses.css" />
     <link
       rel="stylesheet"
@@ -21,44 +22,31 @@
     <!-- Add overlay for hamburger menu -->
     <div class="nav-overlay"></div>
 
-    <!-- Modified Navigation with hamburger menu -->
-    <nav class="main-nav" style="box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15)">
+    <nav class="main-nav">
+      <!-- Add hamburger menu icon -->
       <div class="hamburger-icon">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
       </div>
+
+      <!-- Wrap nav links -->
       <div class="nav-links">
-        <a href="../index.html" aria-label="Home"
-          ><i class="fas fa-home"></i> Home</a
-        >
-        <a href="index.html" aria-label="Schulfächer"
-          ><i class="fas fa-book"></i> Schulfächer</a
-        >
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="index.html"><i class="fas fa-book"></i> Schulfächer</a>
         <a
           href="#present-tenses"
-          class="active tense-nav"
+          class="tense-nav"
           data-target="present-tenses"
-          aria-label="Gegenwart"
         >
-          <i class="fas fa-hourglass-half"></i> Gegenwart</a
-        >
-        <a
-          href="#past-tenses"
-          class="tense-nav"
-          data-target="past-tenses"
-          aria-label="Vergangenheit"
-        >
-          <i class="fas fa-hourglass-start"></i> Vergangenheit</a
-        >
-        <a
-          href="#future-tenses"
-          class="tense-nav"
-          data-target="future-tenses"
-          aria-label="Zukunft"
-        >
-          <i class="fas fa-hourglass-end"></i> Zukunft</a
-        >
+          <i class="fas fa-hourglass-half"></i> Gegenwart
+        </a>
+        <a href="#past-tenses" class="tense-nav" data-target="past-tenses">
+          <i class="fas fa-hourglass-start"></i> Vergangenheit
+        </a>
+        <a href="#future-tenses" class="tense-nav" data-target="future-tenses">
+          <i class="fas fa-hourglass-end"></i> Zukunft
+        </a>
       </div>
     </nav>
 
@@ -762,6 +750,7 @@
 
     <!-- Scripts -->
     <script src="../js/script.js"></script>
+    <script src="../js/hamburger.js"></script>
     <script src="../js/tenses.js"></script>
   </body>
 </html>

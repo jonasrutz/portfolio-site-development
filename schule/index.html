@@ -5,38 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Schultheorien | Mein Portfolio</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/construction.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
   </head>
   <body>
-    <header>
-      <div class="header-content">
-        <i class="fas fa-graduation-cap header-icon"></i>
-        <div>
+    <!-- Add overlay for hamburger menu -->
+    <div class="nav-overlay"></div>
+
+    <nav class="main-nav">
+      <!-- Add hamburger menu icon -->
+      <div class="hamburger-icon">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
+      <!-- Wrap nav links -->
+      <div class="nav-links">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="#mathematik"
+          ><i class="fas fa-square-root-alt"></i> Mathematik</a
+        >
+        <a href="#deutsch"><i class="fas fa-book"></i> Deutsch</a>
+        <a href="#englisch"><i class="fas fa-globe-europe"></i> Englisch</a>
+        <a href="#franzoesisch"><i class="fas fa-flag"></i> Französisch</a>
+        <a href="#informatik"><i class="fas fa-laptop-code"></i> Informatik</a>
+        <a href="#wirtschaft"><i class="fas fa-chart-line"></i> Wirtschaft</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="intro-section">
+        <div class="title-section">
+          <i class="fas fa-graduation-cap header-icon"></i>
           <h1>Schulfächer Theorien</h1>
           <p>
             Meine Sammlung von Theorien und Wissen aus verschiedenen Fächern
           </p>
         </div>
-      </div>
-    </header>
-
-    <nav class="main-nav">
-      <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="#mathematik"
-        ><i class="fas fa-square-root-alt"></i> Mathematik</a
-      >
-      <a href="#deutsch"><i class="fas fa-book"></i> Deutsch</a>
-      <a href="#englisch"><i class="fas fa-globe-europe"></i> Englisch</a>
-      <a href="#franzoesisch"><i class="fas fa-flag"></i> Französisch</a>
-      <a href="#informatik"><i class="fas fa-laptop-code"></i> Informatik</a>
-      <a href="#wirtschaft"><i class="fas fa-chart-line"></i> Wirtschaft</a>
-    </nav>
-
-    <main>
-      <section class="intro-section">
         <h2>
           <i class="fas fa-bookmark"></i> Willkommen zu meinen Schultheorien
         </h2>
@@ -54,7 +63,7 @@
       </section>
 
       <section class="subjects">
-        <div class="subject-card" id="mathematik">
+        <div class="subject-card" id="mathematik" data-status="in bearbeitung">
           <div class="subject-icon">
             <i class="fas fa-square-root-alt"></i>
           </div>
@@ -80,7 +89,7 @@
           </div>
         </div>
 
-        <div class="subject-card" id="deutsch">
+        <div class="subject-card" id="deutsch" data-status="in bearbeitung">
           <div class="subject-icon">
             <i class="fas fa-book"></i>
           </div>
@@ -131,7 +140,7 @@
           </div>
         </div>
 
-        <div class="subject-card" id="franzoesisch">
+        <div class="subject-card" id="franzoesisch" data-status="neu">
           <div class="subject-icon">
             <i class="fas fa-flag"></i>
           </div>
@@ -147,9 +156,8 @@
               und wichtige Sprachstrukturen.
             </p>
             <div class="tags">
-              <span class="tag">Verben</span>
-              <span class="tag">Aussprache</span>
-              <span class="tag">Grammatik</span>
+              <span class="tag">Zeitformen</span>
+              <span class="tag">Satzstruktur</span>
             </div>
             <a href="franzoesisch.html" class="button"
               ><i class="fas fa-arrow-right"></i> Mehr erfahren</a
@@ -157,7 +165,7 @@
           </div>
         </div>
 
-        <div class="subject-card" id="informatik">
+        <div class="subject-card" id="informatik" data-status="in bearbeitung">
           <div class="subject-icon">
             <i class="fas fa-laptop-code"></i>
           </div>
@@ -183,7 +191,7 @@
           </div>
         </div>
 
-        <div class="subject-card" id="wirtschaft">
+        <div class="subject-card" id="wirtschaft" data-status="in bearbeitung">
           <div class="subject-icon">
             <i class="fas fa-chart-line"></i>
           </div>
@@ -201,7 +209,7 @@
             <div class="tags">
               <span class="tag">BWL</span>
               <span class="tag">VWL</span>
-              <span class="tag">Finanzen</span>
+              <span class="tag">Recht</span>
             </div>
             <a href="wirtschaft.html" class="button"
               ><i class="fas fa-arrow-right"></i> Mehr erfahren</a
@@ -230,6 +238,7 @@
     </footer>
 
     <script src="../js/script.js"></script>
+    <script src="../js/hamburger.js"></script>
     <script>
       // Highlight card on hover
       document.querySelectorAll(".subject-card").forEach((card) => {

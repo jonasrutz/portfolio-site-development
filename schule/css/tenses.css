@@ -820,19 +820,39 @@ nav a.tense-nav.active {
   body.menu-open .search-container,
   body.menu-open .tense-section,
   body.menu-open footer {
-    display: none;
-  }
-
-  /* Make hamburger icon color white when menu is open for better visibility */
-  body.menu-open .hamburger-icon .bar1,
-  body.menu-open .hamburger-icon .bar2,
-  body.menu-open .hamburger-icon .bar3 {
-    background-color: white;
+    /* display: none; */ /* Remove this line */
+    opacity: 0.5; /* Dim instead of hide */
   }
 
   /* Prevent card overflow on mobile */
   .tense-card .example {
     display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Make tense navigation more touch-friendly on mobile */
+  .nav-links a.tense-nav {
+    padding: 15px 25px;
+    width: 100%;
+    min-width: unset;
+    text-align: left;
+    border-radius: 0;
+    font-size: 16px; /* Ensure readable text size on mobile */
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links a.tense-nav:hover,
+  .nav-links a.tense-nav.active {
+    background-color: rgba(52, 152, 219, 0.2);
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Ensure these links are fully touchable */
+  .nav-links a.tense-nav:active {
+    background-color: rgba(52, 152, 219, 0.4);
   }
 }
 
@@ -953,5 +973,268 @@ nav a.tense-nav.active {
 
   .examples b::after {
     display: none;
+  }
+}
+
+/* =================== UPDATED NAVIGATION STYLES =================== */
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.main-nav {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  display: flex;
+  justify-content: center; /* Changed from space-between to center for consistency */
+  align-items: center;
+  padding: 0.8rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid rgba(52, 152, 219, 0.3);
+}
+
+.nav-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.nav-title i {
+  font-size: 1.5rem;
+  color: #3498db;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.primary-links,
+.tense-links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.primary-links {
+  margin-right: 1rem;
+  padding-right: 1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Link styling */
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-links a.active {
+  background-color: rgba(52, 152, 219, 0.2);
+  border-bottom: 2px solid #3498db;
+}
+
+/* Special styling for tense navigation */
+.tense-links a.tense-nav {
+  position: relative;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.tense-links a.tense-nav.active {
+  background-color: rgba(52, 152, 219, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.tense-links a.tense-nav:hover {
+  background-color: rgba(52, 152, 219, 0.2);
+}
+
+.tense-links a.tense-nav.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: #3498db;
+  border-radius: 2px;
+}
+
+/* Hamburger icon styling */
+.hamburger-icon {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 101;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Navigation overlay */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 99;
+  backdrop-filter: blur(4px);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.nav-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Responsive navigation for tablets and mobile devices */
+@media screen and (max-width: 900px) {
+  .main-nav {
+    padding: 0.8rem 1rem;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .primary-links,
+  .tense-links {
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hamburger-icon {
+    display: block;
+  }
+
+  .nav-title {
+    margin: 0 auto;
+  }
+
+  .nav-links {
+    position: fixed;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    background-color: #2c3e50;
+    padding: 70px 1.5rem 2rem;
+    transition: right 0.3s ease;
+    z-index: 100;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+  }
+
+  .nav-links.show {
+    right: 0;
+  }
+
+  .primary-links,
+  .tense-links {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .primary-links {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-right: 0;
+    padding-bottom: 1.5rem;
+    margin-right: 0;
+  }
+
+  .tense-links {
+    padding-top: 0.5rem;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 0.8rem 1rem;
+  }
+
+  .hamburger-icon.active .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger-icon.active .bar2 {
+    opacity: 0;
+  }
+
+  .hamburger-icon.active .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* Improve touch target for mobile */
+  .tense-links a.tense-nav {
+    padding: 12px 15px;
+  }
+
+  /* Ensure tense navigation is visible on mobile */
+  .tense-section {
+    padding-top: 1rem;
+  }
+}
+
+/* Improve mobile tense navigation further */
+@media screen and (max-width: 480px) {
+  .nav-title span {
+    display: none; /* Hide title text on small screens */
+  }
+
+  .nav-title i {
+    font-size: 1.8rem;
+  }
+
+  .nav-links a {
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  /* Make mobile navigation more touch-friendly */
+  .tense-links a.tense-nav {
+    padding: 15px;
+    margin-bottom: 5px;
+    border-radius: 8px;
   }
 }

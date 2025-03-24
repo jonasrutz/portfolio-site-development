@@ -18,25 +18,36 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <header>
-      <div class="header-content">
-        <i class="fas fa-book header-icon"></i>
-        <div>
-          <h1>Deutsch</h1>
-          <p>Grammatik, Literatur und Textanalyse</p>
-        </div>
-      </div>
-    </header>
+    <!-- Add overlay for hamburger menu -->
+    <div class="nav-overlay"></div>
 
     <nav class="main-nav">
-      <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="index.html"><i class="fas fa-book"></i> Schulfächer</a>
-      <a href="#grammatik"><i class="fas fa-pen"></i> Grammatik</a>
-      <a href="#literatur"><i class="fas fa-bookmark"></i> Literatur</a>
-      <a href="#aufsatz"><i class="fas fa-file-alt"></i> Aufsatz</a>
+      <!-- Add hamburger menu icon -->
+      <div class="hamburger-icon">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
+      <!-- Wrap nav links -->
+      <div class="nav-links">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="index.html"><i class="fas fa-book"></i> Schulfächer</a>
+        <a href="#grammatik"><i class="fas fa-pen"></i> Grammatik</a>
+        <a href="#literatur"><i class="fas fa-bookmark"></i> Literatur</a>
+        <a href="#aufsatz"><i class="fas fa-file-alt"></i> Aufsatz</a>
+      </div>
     </nav>
 
     <main>
+      <section class="intro-section">
+        <div class="title-section">
+          <i class="fas fa-book header-icon"></i>
+          <h1>Deutsch</h1>
+          <p>Grammatik, Literatur und Textanalyse</p>
+        </div>
+      </section>
+
       <section class="construction-banner deutsch-banner">
         <h2>
           <i class="fas fa-tools"></i> Diese Seite befindet sich im Aufbau
@@ -108,5 +119,6 @@
     </footer>
 
     <script src="../js/script.js"></script>
+    <script src="../js/hamburger.js"></script>
   </body>
 </html>

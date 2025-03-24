@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setupHamburgerMenu();
     addInteractiveHints();
     loadUserProgress();
+    highlightActiveNavOnScroll(); // New function for scroll-based navigation highlighting
   }
   
   function setupNavigation() {
@@ -32,8 +33,53 @@ document.addEventListener("DOMContentLoaded", function () {
         tenseSections.forEach(section => section.classList.remove("active"));
         const targetId = this.getAttribute("data-target");
         document.getElementById(targetId).classList.add("active");
+        
+        // Close mobile menu when a tense is selected
+        const hamburgerIcon = document.querySelector('.hamburger-icon');
+        const navLinks = document.querySelector('.nav-links');
+        const navOverlay = document.querySelector('.nav-overlay');
+        
+        if (window.innerWidth <= 768) {
+          hamburgerIcon.classList.remove('active');
+          navLinks.classList.remove('show');
+          navOverlay.classList.remove('active');
+          document.body.classList.remove('menu-open');
+          
+          // Scroll to the top of the newly selected section
+          setTimeout(() => {
+            document.getElementById(targetId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
       });
     });
+  }
+  
+  // New function to highlight the active navigation item based on scroll position
+  function highlightActiveNavOnScroll() {
+    // Only activate on larger screens
+    if (window.innerWidth > 768) {
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY + 100; // Offset for the header
+        
+        // Find which section is currently in view
+        tenseSections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          
+          if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            const sectionId = section.getAttribute('id');
+            
+            // Update active nav
+            tenseNavs.forEach(nav => {
+              nav.classList.remove('active');
+              if (nav.getAttribute('data-target') === sectionId) {
+                nav.classList.add('active');
+              }
+            });
+          }
+        });
+      });
+    }
   }
   
   function setupTenseCards() {
@@ -272,8 +318,8 @@ document.addEventListener("DOMContentLoaded", function () {
           // Update nav links
           tenseNavs.forEach(nav => {
             nav.classList.remove("active");
-            if (nav.getAttribute("data-target") === sectionId) {
-              nav.classList.add("active");
+            if (nav.getAttribute('data-target') === sectionId) {
+              nav.classList.add('active');
             }
           });
           

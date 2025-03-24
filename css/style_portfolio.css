@@ -684,6 +684,19 @@ body {
   color: var(--heading-color);
 }
 
+/* Card title link styling */
+.card-title-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.card-title-link:hover {
+  color: var(--accent-color);
+}
+
 .card-description {
   font-size: 14px;
   color: var(--text-color);

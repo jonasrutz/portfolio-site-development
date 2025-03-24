@@ -10,6 +10,7 @@
     <title>Französisch | Mein Portfolio</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/construction.css" />
+    <link rel="stylesheet" href="css/tenses.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -18,71 +19,536 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <header>
-      <div class="header-content">
-        <i class="fas fa-flag header-icon"></i>
-        <div>
-          <h1>Französisch</h1>
-          <p>Grammatik, Vokabeln und Sprachübungen</p>
-        </div>
-      </div>
-    </header>
+    <!-- Add overlay for hamburger menu -->
+    <div class="nav-overlay"></div>
 
     <nav class="main-nav">
-      <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="index.html"><i class="fas fa-book"></i> Schulfächer</a>
-      <a href="#verben"><i class="fas fa-running"></i> Verben</a>
-      <a href="#aussprache"><i class="fas fa-microphone-alt"></i> Aussprache</a>
-      <a href="#grammatik"><i class="fas fa-pen"></i> Grammatik</a>
+      <!-- Add hamburger menu icon -->
+      <div class="hamburger-icon">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+
+      <!-- Wrap nav links -->
+      <div class="nav-links">
+        <a href="../index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="index.html"><i class="fas fa-book"></i> Schulfächer</a>
+        <a href="#temps" class="tense-nav" data-target="temps">
+          <i class="fas fa-clock"></i> Les Temps
+        </a>
+        <a href="#structure" class="tense-nav" data-target="structure">
+          <i class="fas fa-ruler"></i> Structure
+        </a>
+        <a href="#noms" class="tense-nav" data-target="noms">
+          <i class="fas fa-font"></i> Noms et Adjectifs
+        </a>
+      </div>
     </nav>
 
     <main>
-      <section class="construction-banner franzoesisch-banner">
-        <h2>
-          <i class="fas fa-drafting-compass"></i> Cette page est en construction
-        </h2>
+      <section class="intro">
+        <h2><i class="fas fa-flag"></i> Französische Grammatik</h2>
         <p>
-          Wir arbeiten daran, hier bald nützliche Französisch-Ressourcen
-          bereitzustellen.
+          Diese Seite bietet einen Überblick über wichtige französische Grammatikkonzepte.
+          Klicke auf ein Thema, um mehr zu erfahren und entdecke die Regeln mit praktischen Beispielen.
         </p>
+
+        <!-- Learning progress -->
+        <div class="learning-progress">
+          <div class="progress-text">
+            <i class="fas fa-graduation-cap"></i> Fortschritt:
+            <span id="progress-value">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
       </section>
 
-      <section class="construction-content">
-        <i class="fas fa-flag"></i>
-        <h2>Französisch-Inhalte kommen bald</h2>
-        <p>
-          Diese Seite wird momentan entwickelt und bald mit hilfreichen
-          Lernressourcen für Französisch gefüllt sein.
-        </p>
+      <div class="search-container">
+        <div class="search-bar">
+          <input
+            type="text"
+            class="search-input"
+            id="searchGrammar"
+            placeholder="Grammatikregeln oder Konzepte suchen..."
+          />
+          <button class="search-button" id="searchButton">
+            <i class="fas fa-search"></i> Suchen
+          </button>
+        </div>
+      </div>
 
-        <div class="coming-soon-features">
-          <h3>Geplante Inhalte</h3>
-          <p>Folgende Themenbereiche werden in Kürze verfügbar sein:</p>
+      <!-- Zeitformen (Temps) Section -->
+      <section id="temps" class="tense-section active">
+        <h2>Zeitformen (Les Temps)</h2>
 
-          <div class="feature-list">
-            <div class="feature-item">
-              <i class="fas fa-check-circle"></i>
-              <span>Konjugationstabellen</span>
+        <!-- Le Présent -->
+        <div class="tense-card">
+          <h3>Le Présent <span class="example">Je parle</span></h3>
+          <div class="tense-content">
+            <div class="form">
+              <h4>Form</h4>
+              <p>Verbstamm + Endungen nach Verbgruppe</p>
+              <ul>
+                <li>1. Gruppe (-er): -e, -es, -e, -ons, -ez, -ent</li>
+                <li>2. Gruppe (-ir): -is, -is, -it, -issons, -issez, -issent</li>
+                <li>3. Gruppe (unregelmäßig): unterschiedliche Formen</li>
+              </ul>
             </div>
-            <div class="feature-item">
-              <i class="fas fa-check-circle"></i>
-              <span>Aussprachetraining</span>
+            <div class="usage">
+              <h4>Verwendung</h4>
+              <ul>
+                <li>Aktuelle Handlungen und Zustände</li>
+                <li>Gewohnheiten und regelmäßige Aktivitäten</li>
+                <li>Allgemeingültige Aussagen und Wahrheiten</li>
+                <li>Nahe Zukunft mit Zeitangabe</li>
+              </ul>
             </div>
-            <div class="feature-item">
-              <i class="fas fa-check-circle"></i>
-              <span>Vokabeltrainer</span>
+            <div class="examples">
+              <h4>Beispiele</h4>
+              <ul>
+                <li>Je <b>parle</b> français. (Ich spreche Französisch.)</li>
+                <li>Tu <b>finis</b> tes devoirs. (Du beendest deine Hausaufgaben.)</li>
+                <li>Il <b>va</b> à l'école tous les jours. (Er geht jeden Tag zur Schule.)</li>
+                <li>Nous <b>aimons</b> le chocolat. (Wir mögen Schokolade.)</li>
+              </ul>
             </div>
-            <div class="feature-item">
-              <i class="fas fa-check-circle"></i>
-              <span>Grammatikregeln</span>
+            <div class="signal-words">
+              <h4>Signalwörter</h4>
+              <p>
+                maintenant, aujourd'hui, d'habitude, souvent, toujours, tous les jours
+              </p>
             </div>
-            <div class="feature-item">
-              <i class="fas fa-check-circle"></i>
-              <span>Übungsdialoge</span>
+          </div>
+        </div>
+
+        <!-- Le Passé Composé -->
+        <div class="tense-card">
+          <h3>Le Passé Composé <span class="example">J'ai parlé</span></h3>
+          <div class="tense-content">
+            <div class="form">
+              <h4>Form</h4>
+              <p>avoir/être (konjugiert im Präsens) + Partizip Perfekt</p>
+              <p><b>avoir</b> als Hilfsverb:</p>
+              <ul>
+                <li>Für die meisten Verben</li>
+                <li>Partizip stimmt nicht mit Subjekt überein</li>
+              </ul>
+              <p><b>être</b> als Hilfsverb:</p>
+              <ul>
+                <li>Bei reflexiven Verben und Bewegungsverben (DR MRS VANDERTRAMP)</li>
+                <li>Partizip stimmt mit Subjekt in Geschlecht und Zahl überein</li>
+              </ul>
             </div>
-            <div class="feature-item">
-              <i class="fas fa-check-circle"></i>
-              <span>Kulturinformationen</span>
+            <div class="usage">
+              <h4>Verwendung</h4>
+              <ul>
+                <li>Abgeschlossene Handlungen in der Vergangenheit</li>
+                <li>Aufeinanderfolgende Ereignisse</li>
+                <li>Einzelne Handlungen (im Gegensatz zum Imparfait)</li>
+                <li>Handlungen mit einem klaren Anfang und Ende</li>
+              </ul>
+            </div>
+            <div class="examples">
+              <h4>Beispiele</h4>
+              <ul>
+                <li>J'<b>ai parlé</b> à mon ami hier. (Ich habe gestern mit meinem Freund gesprochen.)</li>
+                <li>Elle <b>a fait</b> ses devoirs. (Sie hat ihre Hausaufgaben gemacht.)</li>
+                <li>Nous <b>sommes allés</b> au cinéma. (Wir sind ins Kino gegangen.)</li>
+                <li>Elles <b>sont arrivées</b> à midi. (Sie sind um Mittag angekommen.)</li>
+              </ul>
+            </div>
+            <div class="signal-words">
+              <h4>Signalwörter</h4>
+              <p>
+                hier, la semaine dernière, l'année dernière, il y a deux jours
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- L'Imparfait -->
+        <div class="tense-card">
+          <h3>L'Imparfait <span class="example">Je parlais</span></h3>
+          <div class="tense-content">
+            <div class="form">
+              <h4>Form</h4>
+              <p>1. Person Plural im Präsens ohne -ons + Endungen:</p>
+              <p>-ais, -ais, -ait, -ions, -iez, -aient</p>
+              <p>Beispiel: nous parl<b>ons</b> → je parl<b>ais</b></p>
+              <p>Ausnahme: être → j'étais, tu étais, etc.</p>
+            </div>
+            <div class="usage">
+              <h4>Verwendung</h4>
+              <ul>
+                <li>Beschreibungen und Hintergrundinformationen</li>
+                <li>Gewohnheiten und wiederholte Handlungen in der Vergangenheit</li>
+                <li>Gleichzeitige Handlungen in der Vergangenheit</li>
+                <li>Andauernde Handlungen ohne klares Ende</li>
+                <li>Gefühle und Zustände in der Vergangenheit</li>
+              </ul>
+            </div>
+            <div class="examples">
+              <h4>Beispiele</h4>
+              <ul>
+                <li>Il <b>faisait</b> beau ce jour-là. (Es war schönes Wetter an diesem Tag.)</li>
+                <li>Quand j'étais petit, je <b>jouais</b> souvent au football. (Als ich klein war, spielte ich oft Fußball.)</li>
+                <li>Pendant qu'il <b>lisait</b>, elle <b>cuisinait</b>. (Während er las, kochte sie.)</li>
+                <li>Nous <b>habitions</b> à Paris à cette époque. (Wir wohnten zu dieser Zeit in Paris.)</li>
+              </ul>
+            </div>
+            <div class="signal-words">
+              <h4>Signalwörter</h4>
+              <p>
+                souvent, d'habitude, tous les jours, chaque jour, pendant que, quand j'étais petit
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Le Futur Proche -->
+        <div class="tense-card">
+          <h3>Le Futur Proche <span class="example">Je vais parler</span></h3>
+          <div class="tense-content">
+            <div class="form">
+              <h4>Form</h4>
+              <p>aller (konjugiert im Präsens) + Infinitiv</p>
+            </div>
+            <div class="usage">
+              <h4>Verwendung</h4>
+              <ul>
+                <li>Handlungen in der nahen Zukunft</li>
+                <li>Geplante, beabsichtigte Aktionen</li>
+                <li>Vorhersagen mit höherer Wahrscheinlichkeit</li>
+                <li>Alltagssprache, informeller als Futur Simple</li>
+              </ul>
+            </div>
+            <div class="examples">
+              <h4>Beispiele</h4>
+              <ul>
+                <li>Je <b>vais acheter</b> un nouveau livre. (Ich werde ein neues Buch kaufen.)</li>
+                <li>Il <b>va pleuvoir</b> ce soir. (Es wird heute Abend regnen.)</li>
+                <li>Nous <b>allons voyager</b> en Italie l'été prochain. (Wir werden nächsten Sommer nach Italien reisen.)</li>
+                <li>Tu <b>vas réussir</b> ton examen ! (Du wirst deine Prüfung bestehen!)</li>
+              </ul>
+            </div>
+            <div class="signal-words">
+              <h4>Signalwörter</h4>
+              <p>
+                tout de suite, bientôt, demain, ce soir, la semaine prochaine
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Le Futur Simple -->
+        <div class="tense-card">
+          <h3>Le Futur Simple <span class="example">Je parlerai</span></h3>
+          <div class="tense-content">
+            <div class="form">
+              <h4>Form</h4>
+              <p>Bei regelmäßigen Verben: Infinitiv + Endungen:</p>
+              <p>-ai, -as, -a, -ons, -ez, -ont</p>
+              <p>Bei Verben auf -re: e entfällt → parler → je parlerai</p>
+              <p>Unregelmäßige Verben haben oft einen veränderten Stamm</p>
+              <ul>
+                <li>être → ser- (je serai)</li>
+                <li>avoir → aur- (j'aurai)</li>
+                <li>aller → ir- (j'irai)</li>
+                <li>faire → fer- (je ferai)</li>
+              </ul>
+            </div>
+            <div class="usage">
+              <h4>Verwendung</h4>
+              <ul>
+                <li>Handlungen in der weiteren Zukunft</li>
+                <li>Vorhersagen und Vermutungen über die Zukunft</li>
+                <li>Versprechen und Verpflichtungen</li>
+                <li>Formeller als Futur Proche</li>
+              </ul>
+            </div>
+            <div class="examples">
+              <h4>Beispiele</h4>
+              <ul>
+                <li>Je <b>parlerai</b> à mon professeur demain. (Ich werde morgen mit meinem Lehrer sprechen.)</li>
+                <li>Un jour, tu <b>comprendras</b>. (Eines Tages wirst du verstehen.)</li>
+                <li>Nous <b>serons</b> là à 8 heures. (Wir werden um 8 Uhr da sein.)</li>
+                <li>Ils <b>finiront</b> leur projet la semaine prochaine. (Sie werden ihr Projekt nächste Woche beenden.)</li>
+              </ul>
+            </div>
+            <div class="signal-words">
+              <h4>Signalwörter</h4>
+              <p>
+                demain, la semaine prochaine, l'année prochaine, dans deux jours, un jour
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Satzstrukturen (Structure) Section -->
+      <section id="structure" class="tense-section">
+        <h2>Satzstrukturen (Structure de Phrase)</h2>
+
+        <!-- L'Interrogation -->
+        <div class="tense-card">
+          <h3>L'Interrogation <span class="example">Parles-tu français ?</span></h3>
+          <div class="tense-content">
+            <div class="form">
+              <h4>Formen der Fragestellung</h4>
+              <p><b>1. Intonationsfrage:</b> Aussagesatz mit steigender Intonation</p>
+              <p><b>2. Est-ce que:</b> "Est-ce que" + Aussagesatz</p>
+              <p><b>3. Inversion:</b> Verb und Subjekt vertauschen (mit Bindestrich), bei 3. Person Singular mit "t" zwischen zwei Vokalen</p>
+              <p><b>4. Fragewörter:</b> Fragewort + eine der obigen Methoden</p>
+            </div>
+            <div class="usage">
+              <h4>Wichtige Fragewörter</h4>
+              <ul>
+                <li><b>Qui</b> - Wer?</li>
+                <li><b>Que/Qu'est-ce que</b> - Was?</li>
+                <li><b>Où</b> - Wo?/Wohin?</li>
+                <li><b>Quand</b> - Wann?</li>
+                <li><b>Comment</b> - Wie?</li>
+                <li><b>Pourquoi</b> - Warum?</li>
+                <li><b>Combien</b> - Wie viel?</li>
+                <li><b>Quel/Quelle/Quels/Quelles</b> - Welcher/Welche/Welches?</li>
+              </ul>
+            </div>
+            <div class="examples">
+              <h4>Beispiele</h4>
+              <ul>
+                <li><b>Intonation:</b> Tu parles français? (Sprichst du Französisch?)</li>
+                <li><b>Est-ce que:</b> Est-ce que tu parles français? (Sprichst du Französisch?)</li>
+                <li><b>Inversion:</b> Parles-tu français? (Sprichst du Französisch?)</li>
+                <li><b>Mit Fragewort:</b> Où habites-tu? (Wo wohnst du?)</li>
+                <li><b>Mit Fragewort + est-ce que:</b> Où est-ce que tu habites? (Wo wohnst du?)</li>
+                <li><b>Quel:</b> Quel âge as-tu? (Wie alt bist du?)</li>
+                <li>Bei 3. Person mit -t-:</b> Parle-t-il français? (Spricht er Französisch?)</li>
+              </ul>
+            </div>
+            <div class="signal-words">
+              <h4>Hinweis</h4>
+              <p>
+                Im informellen Gespräch wird häufig die Intonations- oder Est-ce que-Frage verwendet.
+                Die Inversion gilt als formeller und wird oft in der Schriftsprache verwendet.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- La Négation -->
+        <div class="tense-card">
+          <h3>La Négation <span class="example">Je ne parle pas français</span></h3>
+          <div class="tense-content">
+            <div class="form">
+              <h4>Grundform</h4>
+              <p><b>ne ... pas:</b> ne vor dem Verb (oder Hilfsverb) und pas danach</p>
+              <p><b>Bei zusammengesetzten Zeiten:</b> ne + Hilfsverb + pas + Partizip</p>
+              <p><b>Bei Infinitiv:</b> ne pas + Infinitiv</p>
+              
+              <h4>Andere Verneinungsformen</h4>
+              <ul>
+                <li><b>ne ... jamais</b> - nie, niemals</li>
+                <li><b>ne ... plus</b> - nicht mehr</li>
+                <li><b>ne ... rien</b> - nichts</li>
+                <li><b>ne ... personne</b> - niemand</li>
+                <li><b>ne ... que</b> - nur (Einschränkung, keine echte Verneinung)</li>
+                <li><b>ne ... aucun(e)</b> - kein(e)</li>
+                <li><b>ne ... ni ... ni</b> - weder ... noch</li>
+              </ul>
+            </div>
+            <div class="usage">
+              <h4>Besonderheiten</h4>
+              <ul>
+                <li>Bei <b>personne</b> und <b>rien</b> als Subjekt: personne ne + Verb, rien ne + Verb</li>
+                <li>In der Umgangssprache wird <b>ne</b> oft weggelassen</li>
+                <li>Bei Artikeln: <b>un/une → pas de</b>, <b>du/de la/des → pas de</b></li>
+              </ul>
+            </div>
+            <div class="examples">
+              <h4>Beispiele</h4>
+              <ul>
+                <li>Je <b>ne parle pas</b> français. (Ich spreche nicht Französisch.)</li>
+                <li>Elle <b>n'a pas</b> mangé. (Sie hat nicht gegessen.)</li>
+                <li>Je <b>ne vais plus</b> à l'école. (Ich gehe nicht mehr zur Schule.)</li>
+                <li>Il <b>ne veut jamais</b> sortir. (Er will nie ausgehen.)</li>
+                <li>Je <b>ne connais personne</b> ici. (Ich kenne niemanden hier.)</li>
+                <li><b>Personne n'</b>est venu. (Niemand ist gekommen.)</li>
+                <li>Je <b>n'ai vu personne</b>. (Ich habe niemanden gesehen.)</li>
+                <li>Il <b>ne boit ni</b> vin <b>ni</b> bière. (Er trinkt weder Wein noch Bier.)</li>
+                <li>J'ai un chien → Je <b>n'ai pas de</b> chien. (Ich habe keinen Hund.)</li>
+              </ul>
+            </div>
+            <div class="signal-words">
+              <h4>Hinweis</h4>
+              <p>
+                Bei Verneinungen mit "de" ändert sich der unbestimmte Artikel (un, une) oder Teilungsartikel (du, de la, des) zu "de/d'".
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Noms et Adjectifs Section -->
+      <section id="noms" class="tense-section">
+        <h2>Nomen und Adjektive (Noms et Adjectifs)</h2>
+
+        <!-- Les Substantifs -->
+        <div class="tense-card">
+          <h3>Les Substantifs <span class="example">le garçon, la fille</span></h3>
+          <div class="tense-content">
+            <div class="form">
+              <h4>Geschlecht (genre)</h4>
+              <p>Im Französischen hat jedes Substantiv entweder männliches (masculin) oder weibliches (féminin) Geschlecht:</p>
+              <ul>
+                <li><b>Masculin:</b> le garçon, le livre, le stylo</li>
+                <li><b>Féminin:</b> la fille, la table, la chaise</li>
+              </ul>
+              
+              <h4>Regeln zur Erkennung des Geschlechts</h4>
+              <p><b>Tendenziell männlich:</b></p>
+              <ul>
+                <li>Wörter auf -age, -ment, -eau, -phone, -scope</li>
+                <li>Tage, Monate, Jahreszeiten (außer automne)</li>
+                <li>Zahlen, Sprachen, Metalle</li>
+              </ul>
+              <p><b>Tendenziell weiblich:</p>
+              <ul>
+                <li>Wörter auf -tion, -sion, -té, -ée, -ence, -esse</li>
+                <li>Die meisten Wörter auf -e</li>
+              </ul>
+            </div>
+            <div class="usage">
+              <h4>Pluralbildung</h4>
+              <p><b>Regelmäßige Pluralbildung:</b> Singular + -s</p>
+              <ul>
+                <li>un livre → des livres</li>
+                <li>une table → des tables</li>
+              </ul>
+              
+              <p><b>Besondere Pluralformen:</b></p>
+              <ul>
+                <li>Wörter auf -au, -eau, -eu: + -x (un chapeau → des chapeaux)</li>
+                <li>Wörter auf -al: → -aux (un journal → des journaux)</li>
+                <li>Wörter auf -ail: meist → -ails, manchmal → -aux</li>
+                <li>Unverändert: Wörter auf -s, -x, -z (un nez → des nez)</li>
+              </ul>
+            </div>
+            <div class="examples">
+              <h4>Artikel</h4>
+              <p><b>Bestimmte Artikel (articles définis):</b></p>
+              <ul>
+                <li><b>Singular:</b> le (m), la (f), l' (vor Vokal/stummes h)</li>
+                <li><b>Plural:</b> les (m/f)</li>
+              </ul>
+              
+              <p><b>Unbestimmte Artikel (articles indéfinis):</p>
+              <ul>
+                <li><b>Singular:</b> un (m), une (f)</li>
+                <li><b>Plural:</b> des (m/f)</li>
+              </ul>
+              
+              <p><b>Teilungsartikel (articles partitifs):</b></p>
+              <ul>
+                <li><b>Singular:</b> du (m), de la (f), de l' (vor Vokal/stummes h)</li>
+                <li><b>Plural:</b> des (m/f)</li>
+              </ul>
+            </div>
+            <div class="signal-words">
+              <h4>Hinweis</h4>
+              <p>
+                Das Geschlecht muss oft auswendig gelernt werden, da es nicht immer logischen Regeln folgt.
+                Der Teilungsartikel wird verwendet, um eine unbestimmte Menge auszudrücken (z.B. du pain = etwas Brot).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Les Adjectifs -->
+        <div class="tense-card">
+          <h3>Les Adjectifs <span class="example">grand/grande</span></h3>
+          <div class="tense-content">
+            <div class="form">
+              <h4>Grundformen und Angleichung</h4>
+              <p>Adjektive passen sich in Geschlecht und Zahl an das Substantiv an:</p>
+              
+              <p><b>Femininbildung:</b></p>
+              <ul>
+                <li><b>Regelmäßig:</b> Maskulinum + -e (grand → grande)</li>
+                <li><b>Endet bereits auf -e:</b> Keine Änderung (jeune → jeune)</li>
+                <li><b>Endet auf -f:</b> → -ve (neuf → neuve)</li>
+                <li><b>Endet auf -x:</b> → -se (heureux → heureuse)</li>
+                <li><b>Endet auf -er:</b> → -ère (premier → première)</li>
+                <li><b>Endet auf -eur:</b> → -euse (menteur → menteuse)</li>
+                <li><b>Unregelmäßig:</b> z.B. blanc → blanche, beau → belle</li>
+              </ul>
+              
+              <p><b>Pluralbildung:</b></p>
+              <ul>
+                <li><b>Regelmäßig:</b> Singular + -s (petit → petits, petite → petites)</li>
+                <li><b>Endet auf -s, -x:</b> Keine Änderung (français → français)</li>
+                <li><b>Endet auf -eau:</b> → -eaux (beau → beaux)</li>
+                <li><b>Endet auf -al:</b> → -aux (national → nationaux)</li>
+              </ul>
+            </div>
+            <div class="usage">
+              <h4>Stellung der Adjektive</h4>
+              <p><b>Normalerweise nach dem Substantiv:</b></p>
+              <ul>
+                <li>Farben: une maison blanche</li>
+                <li>Form: une table ronde</li>
+                <li>Nationalität: un livre français</li>
+                <li>Religion: une église catholique</li>
+                <li>Längere Adjektive: une histoire intéressante</li>
+              </ul>
+              
+              <p><b>Vor dem Substantiv:</b></p>
+              <ul>
+                <li>BAGS: beau, ancien, grand, small (petit)</li>
+                <li>Kurze, häufige Adjektive: bon, mauvais, joli, jeune, vieux</li>
+                <li>Zahlwörter: premier, deuxième</li>
+              </ul>
+              
+              <p><b>Bedeutungsunterschied:</b> Manchmal ändert sich die Bedeutung je nach Stellung</p>
+              <ul>
+                <li>un ancien professeur (ehemaliger Lehrer)</li>
+                <li>un professeur ancien (alter/altmodischer Lehrer)</li>
+              </ul>
+            </div>
+            <div class="examples">
+              <h4>Beispiele</h4>
+              <ul>
+                <li>un <b>petit</b> garçon / une <b>petite</b> fille</li>
+                <li>un homme <b>intelligent</b> / une femme <b>intelligente</b></li>
+                <li>un chat <b>noir</b> / une voiture <b>noire</b></li>
+                <li>des livres <b>intéressants</b> / des histoires <b>intéressantes</b></li>
+                <li>le <b>premier</b> jour / la <b>première</b> fois</li>
+                <li>un <b>beau</b> jardin / une <b>belle</b> maison / de <b>beaux</b> jardins</li>
+              </ul>
+            </div>
+            <div class="signal-words">
+              <h4>Steigerung der Adjektive</h4>
+              <p><b>Komparativ (Vergleich):</b></p>
+              <ul>
+                <li><b>plus ... que</b> (mehr als): Il est <b>plus grand que</b> moi.</li>
+                <li><b>moins ... que</b> (weniger als): Elle est <b>moins grande que</b> lui.</li>
+                <li><b>aussi ... que</b> (genauso wie): Il est <b>aussi intelligent que</b> son frère.</li>
+              </ul>
+              
+              <p><b>Superlativ (höchste Stufe):</b></p>
+              <ul>
+                <li><b>le/la/les plus</b>: C'est <b>le plus grand</b> garçon de la classe.</li>
+                <li><b>le/la/les moins</b>: C'est <b>la moins difficile</b> des questions.</li>
+              </ul>
+              
+              <p><b>Unregelmäßige Steigerungsformen:</b></p>
+              <ul>
+                <li>bon → meilleur (besser) → le meilleur (der beste)</li>
+                <li>mauvais → pire (schlechter) → le pire (der schlechteste)</li>
+                <li>petit (klein) → moindre (geringer) → le moindre (der geringste)</li>
+              </ul>
             </div>
           </div>
         </div>
@@ -93,12 +559,8 @@
       <div class="footer-content">
         <div class="footer-links">
           <a href="../index.html"><i class="fas fa-home"></i> Home</a>
-          <a href="../index.html#contact"
-            ><i class="fas fa-envelope"></i> Kontakt</a
-          >
-          <a href="../index.html#about"
-            ><i class="fas fa-user"></i> Über mich</a
-          >
+          <a href="../index.html#contact"><i class="fas fa-envelope"></i> Kontakt</a>
+          <a href="../index.html#about"><i class="fas fa-user"></i> Über mich</a>
         </div>
         <p>
           &copy; <span id="current-year">2023</span> Mein Portfolio |
@@ -108,5 +570,7 @@
     </footer>
 
     <script src="../js/script.js"></script>
+    <script src="../js/hamburger.js"></script>
+    <script src="../js/tenses.js"></script>
   </body>
 </html>
