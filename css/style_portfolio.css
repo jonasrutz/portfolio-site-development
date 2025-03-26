@@ -702,6 +702,16 @@ body {
   color: var(--text-color);
 }
 
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
+
 /* Footer styles */
 .footer {
   background-color: var(--footer-bg);
