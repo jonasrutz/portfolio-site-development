@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Collection</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #222034;
+        color: #ffffff;
+        font-family: "VT323", monospace;
+        font-size: 22px;
+        line-height: 1.6;
+        image-rendering: pixelated;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding: 20px;
+        background-color: #494866;
+        border: 4px solid #8b9bb4;
+        box-shadow: 0 8px 0 #2c2a3a;
+      }
+
+      h1 {
+        font-family: "Press Start 2P", cursive;
+        font-size: 36px;
+        color: #f4f4f4;
+        text-shadow: 4px 4px 0 #3a4466;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+
+      .pixel-divider {
+        height: 8px;
+        background-image: linear-gradient(
+          to right,
+          transparent,
+          #8b9bb4,
+          transparent
+        );
+        margin: 20px auto;
+        position: relative;
+      }
+
+      .pixel-divider::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-image: linear-gradient(
+          to right,
+          transparent,
+          #f4f4f4,
+          transparent
+        );
+        opacity: 0.3;
+      }
+
+      .games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .game-card {
+        background-color: #3a4466;
+        border: 4px solid #8b9bb4;
+        border-radius: 4px;
+        padding: 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+        box-shadow: 0 6px 0 #2c2a3a;
+        transform-style: preserve-3d;
+      }
+
+      .game-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 11px 0 #2c2a3a;
+      }
+
+      .game-card:active {
+        transform: translateY(3px);
+        box-shadow: 0 3px 0 #2c2a3a;
+      }
+
+      .game-icon {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px;
+        background-color: #222034;
+        border: 3px solid #8b9bb4;
+        border-radius: 2px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .game-icon img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .game-title {
+        font-family: "Press Start 2P", cursive;
+        font-size: 18px;
+        color: #f4f4f4;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 0 #222034;
+      }
+
+      .game-desc {
+        font-size: 18px;
+        color: #bdc2ce;
+      }
+
+      .pixel-button {
+        display: inline-block;
+        background-color: #f6757a;
+        color: #222034;
+        padding: 8px 16px;
+        font-family: "Press Start 2P", cursive;
+        font-size: 14px;
+        margin-top: 15px;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        text-decoration: none;
+        box-shadow: 0 5px 0 #a2494d;
+        transition: all 0.1s ease;
+      }
+
+      .pixel-button:hover {
+        background-color: #ff898e;
+      }
+
+      .pixel-button:active {
+        transform: translateY(3px);
+        box-shadow: 0 2px 0 #a2494d;
+      }
+
+      footer {
+        margin-top: 60px;
+        text-align: center;
+        padding: 20px;
+        font-size: 16px;
+        color: #8b9bb4;
+      }
+
+      .sparkle {
+        position: absolute;
+        background-color: #f4f4f4;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        pointer-events: none;
+        animation: sparkle-anim 1.5s linear infinite;
+      }
+
+      @keyframes sparkle-anim {
+        0% {
+          opacity: 0;
+          transform: scale(0);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .games-grid {
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        .game-icon {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>GAME COLLECTION</h1>
+        <div class="pixel-divider"></div>
+        <p>Select a game to play</p>
+      </header>
+      <div class="games-grid">
+        <!-- 3D Game -->
+        <a href="3dgame/index.html" class="game-card">
+          <div class="game-icon">
+            <span style="font-size: 48px; color: #8b9bb4">3D</span>
+          </div>
+          <h2 class="game-title">3D Game</h2>
+          <p class="game-desc">Explore a 3D world</p>
+          <div class="pixel-button">PLAY</div>
+        </a>
+
+        <!-- Clicker Game -->
+        <a href="clicker/index.html" class="game-card">
+          <div class="game-icon">
+            <span style="font-size: 48px; color: #8b9bb4">⛏️</span>
+          </div>
+          <h2 class="game-title">Cosmic Clicker</h2>
+          <p class="game-desc">Craft, forge & upgrade</p>
+          <div class="pixel-button">PLAY</div>
+        </a>
+
+      <footer>
+        <div class="pixel-divider"></div>
+        <p>© 2025 Lumjos</p>
+      </footer>
+    </div>
+
+    <script>
+      // Add sparkling effect
+      function createSparkles() {
+        const container = document.querySelector(".container");
+        const sparkleCount = 20;
+
+        for (let i = 0; i < sparkleCount; i++) {
+          setTimeout(() => {
+            const sparkle = document.createElement("div");
+            sparkle.classList.add("sparkle");
+
+            // Random position
+            const x = Math.random() * window.innerWidth;
+            const y = Math.random() * window.innerHeight;
+
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+
+            // Random delay and duration
+            const delay = Math.random() * 2;
+            const duration = 1 + Math.random() * 2;
+
+            sparkle.style.animationDelay = `${delay}s`;
+            sparkle.style.animationDuration = `${duration}s`;
+
+            document.body.appendChild(sparkle);
+
+            // Remove after animation to prevent DOM cluttering
+            setTimeout(() => {
+              sparkle.remove();
+            }, duration * 1000 + 100);
+          }, i * 200);
+        }
+      }
+
+      // Run sparkle effect periodically
+      setInterval(createSparkles, 5000);
+      createSparkles();
+
+      // Add hover sound effect (optional)
+      const gameCards = document.querySelectorAll(".game-card");
+      gameCards.forEach((card) => {
+        card.addEventListener("mouseenter", () => {
+          const hoverSound = new Audio(
+            "data:audio/wav;base64,UklGRl4BAABXQVZFZm10IBAAAAABAAEARKwAAESsAAABAAgAZGF0YToBAACBgIF/gn6AfXx+gYODgX55dXZ6fYGDhYWEg4B9eXd4e36Cg4SFhoeJiYaDfnx8fH+Bg4OBgH+AgICAgICBgoKDg4KCgYGAgH9+fn5/f4CAgICAgIGCg4SDgX98e3p7fX+BgoODhIWGhoWDgX59fH1+gIGCg4OEhIWFhIOCgYB/fn18e3t7fH1+f4CBgoKDg4SEhYWEg4KBgH9+fXx8fHx8fX5+f4CAgICAf35+fn5+fn9/gICAgICAgIB/f39/f39/f39/f39/f39/f39/f4CAgICAgICAgH9/f39/f39/f39/f39/f39/f3+AgICAgICAgIB/f39/f39/f39/f39/f39/f39/gICAgICAgICAgICAgICAgICA"
+          );
+          hoverSound.volume = 0.2;
+          hoverSound.play();
+        });
+      });
+    </script>
+  </body>
+</html>

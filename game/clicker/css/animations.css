@@ -1,0 +1,440 @@
+/* Animation-Styles für das Spiel */
+
+/* Loading screen animation */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-content {
+  text-align: center;
+}
+
+.loading-content i {
+  font-size: 4rem;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.loading-content p {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
+
+/* Make FontAwesome's fa-spin smoother */
+.fa-spin {
+  animation: fa-spin 2s infinite linear;
+}
+
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pulse animation for achievements */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Notification slide-in animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Notification fade-out animation */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Hammer animation */
+.hammer-animation {
+  animation: hammerHit 0.3s ease;
+  transform-origin: bottom right;
+}
+
+@keyframes hammerHit {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Upgrade pulse animation */
+@keyframes upgradePulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: var(--secondary-color);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Floating score animation */
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+/* Level-up celebration animation */
+.level-up-animation {
+  animation: levelUp 1s ease-in-out;
+}
+
+@keyframes levelUp {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(129, 178, 154, 0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Save indicator animation */
+@keyframes saveIndicator {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Achievement unlock animation */
+.achievement-unlock {
+  animation: achievementUnlock 1s ease-in-out;
+}
+
+@keyframes achievementUnlock {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(1.1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.05);
+  }
+  40% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Achievement progress bar animation */
+@keyframes progressFill {
+  0% {
+    width: 0%;
+  }
+}
+
+.progress-fill.animate {
+  animation: progressFill 1s ease-in-out;
+}
+
+/* Achievement icon glow effect */
+@keyframes iconGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(var(--accent-color-rgb), 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(var(--accent-color-rgb), 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(var(--accent-color-rgb), 0.5);
+  }
+}
+
+.achievement.earned .achievement-icon {
+  animation: iconGlow 2s infinite alternate;
+}
+
+/* Achievement filter button animation */
+@keyframes filterActivate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.filter-button.active {
+  animation: filterActivate 0.3s ease;
+}
+
+/* Achievement notification entrance animation */
+@keyframes notificationEntrance {
+  0% {
+    transform: translateX(100px) scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-15px) scale(1.05);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.achievement-notification.show {
+  animation: notificationEntrance 0.6s ease forwards;
+}
+
+/* Confetti animation for achievement completion */
+@keyframes confetti {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x, 50px), var(--y, 100px))
+      rotate(var(--rotate, 180deg));
+    opacity: 0;
+  }
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color, var(--accent-color));
+  opacity: 0;
+  animation: confetti var(--duration, 1s) ease forwards;
+  z-index: 10;
+}
+
+/* Button hover effects */
+.hover-effect {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.hover-effect:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--hover-shadow);
+}
+
+/* Resource gain animation */
+.resource-gain {
+  animation: resourceGain 0.5s ease-out;
+}
+
+@keyframes resourceGain {
+  0% {
+    color: inherit;
+  }
+  50% {
+    color: var(--accent-color);
+  }
+  100% {
+    color: inherit;
+  }
+}
+
+/* Queue item completion */
+.item-complete {
+  animation: itemComplete 0.5s;
+}
+
+@keyframes itemComplete {
+  0% {
+    background-color: #f0f7f4;
+  }
+  50% {
+    background-color: #c8e6c9;
+  }
+  100% {
+    background-color: #f0f7f4;
+  }
+}
+
+/* Tab transition */
+.tab-transition {
+  animation: tabTransition 0.3s ease-in-out;
+}
+
+@keyframes tabTransition {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Shake animation for errors */
+.shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* Bounce animation for achievements */
+.bounce {
+  animation: bounce 1s;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Loading pulse animation */
+.loading-pulse {
+  animation: loadingPulse 1.5s infinite;
+}
+
+@keyframes loadingPulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Basic animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

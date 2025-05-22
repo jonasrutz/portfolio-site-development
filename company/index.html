@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jontech - Professionelle Webseiten für Unternehmen</title>
+    <meta
+      name="description"
+      content="Jontech entwickelt und verkauft professionelle Webseiten für Unternehmen, Selbstständige und Organisationen mit geringem Backend-Bedarf."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- EmailJS für Mail-Funktionalität -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"
+    ></script>
+  </head>
+  <body>
+    <!-- Shopping Cart Sidebar -->
+    <div class="shopping-cart-sidebar">
+      <div class="cart-header">
+        <h3>Warenkorb</h3>
+        <button class="btn-close-cart"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="cart-items">
+        <!-- Cart items will be added here dynamically -->
+      </div>
+      <div class="cart-summary">
+        <div class="cart-total">
+          <span>Gesamt:</span>
+          <span class="total-amount">0,00 €</span>
+        </div>
+        <button class="btn-checkout">Zum Kontaktformular</button>
+      </div>
+    </div>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay"></div>
+
+    <!-- Cart Button (Mobile) -->
+    <div class="cart-button">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-count">0</span>
+    </div>
+
+    <header>
+      <div class="container">
+        <div class="logo">
+          <h1>Jontech</h1>
+        </div>
+        <nav>
+          <ul class="menu">
+            <li><a href="#about">Über uns</a></li>
+            <li><a href="#services">Leistungen</a></li>
+            <li><a href="#products">Produkte</a></li>
+            <li><a href="#advantages">Vorteile</a></li>
+            <li><a href="#contact" class="btn-contact">Kontakt</a></li>
+          </ul>
+          <div class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Professionelle Webseiten für Ihr Unternehmen</h1>
+          <p>
+            Moderne, schnelle und benutzerfreundliche Webseiten ohne komplexen
+            Backend-Aufbau. Perfekt für kleine Unternehmen, Selbstständige und
+            Vereine.
+          </p>
+          <a href="#contact" class="btn-primary">Jetzt anfragen</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>Über Jontech</h2>
+          <p>Ihr Partner für moderne Webpräsenzen</p>
+        </div>
+        <div class="about-content">
+          <div class="about-info">
+            <p>
+              Jontech wurde mit dem Ziel gegründet, qualitativ hochwertige
+              Webseiten für Unternehmen, Selbstständige und Organisationen zu
+              entwickeln, die keinen komplexen Backend-Aufbau benötigen.
+            </p>
+            <p>
+              Unser Fokus liegt auf der Erstellung professioneller, moderner und
+              benutzerfreundlicher Webseiten, die perfekt auf die Bedürfnisse
+              unserer Kunden zugeschnitten sind.
+            </p>
+            <ul class="about-features">
+              <li><i class="fas fa-check"></i> Gegründet: 2023</li>
+              <li><i class="fas fa-check"></i> Standort: St. Gallen</li>
+              <li>
+                <i class="fas fa-check"></i> Fokus: Webseiten für KMU und
+                Selbstständige
+              </li>
+              <li>
+                <i class="fas fa-check"></i> Motto: "Moderne Webpräsenz ohne
+                Komplexität"
+              </li>
+            </ul>
+          </div>
+          <div class="about-image">
+            <img
+              src="img/about-image.jpg"
+              alt="Jontech Team"
+              class="img-placeholder"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Unsere Leistungen</h2>
+          <p>Maßgeschneiderte Webseiten nach Ihren Bedürfnissen</p>
+        </div>
+        <div class="service-cards">
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Webseiten-Erstellung</h3>
+            <p>Modernes Design mit responsivem Layout für alle Geräte</p>
+            <ul>
+              <li>Design nach Wahl (Template oder individuell)</li>
+              <li>Mobilfreundlich und responsiv</li>
+              <li>SEO-Grundoptimierung</li>
+              <li>Einfache Inhaltsverwaltung</li>
+              <li>Optimierte Ladezeiten</li>
+              <li>Kontaktformular</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-search"></i>
+            </div>
+            <h3>SEO-Optimierung</h3>
+            <p>Verbesserte Sichtbarkeit in Suchmaschinen</p>
+            <ul>
+              <li>Keywordanalyse</li>
+              <li>On-Page-Optimierung</li>
+              <li>Meta-Beschreibungen</li>
+              <li>Alt-Texte für Bilder</li>
+              <li>Sitemaps</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>Support & Wartung</h3>
+            <p>Kontinuierliche Betreuung Ihrer Webseite</p>
+            <ul>
+              <li>Tägliche Verfügbarkeitsprüfung</li>
+              <li>Regelmäßige Updates</li>
+              <li>Backups</li>
+              <li>Technischer Support</li>
+              <li>Content-Updates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="products">
+      <div class="container">
+        <div class="section-header">
+          <h2>Unsere Produkte</h2>
+          <p>Wählen Sie die passende Lösung für Ihre Anforderungen</p>
+        </div>
+
+        <div class="product-categories">
+          <div class="category-tabs">
+            <button class="category-tab active" data-category="website">
+              Webseiten-Pakete
+            </button>
+            <button class="category-tab" data-category="service">
+              Zusätzliche Services
+            </button>
+          </div>
+
+          <div class="product-grid" id="website-products">
+            <!-- Website Packages -->
+            <div class="product-card" data-product-id="starter">
+              <div class="product-header">
+                <h3>Starter Paket</h3>
+                <span class="price">599 €</span>
+              </div>
+              <div class="product-content">
+                <p>
+                  Einfache, professionelle Webseite für Selbstständige und
+                  kleine Unternehmen.
+                </p>
+                <ul>
+                  <li><i class="fas fa-check"></i> Responsive Design</li>
+                  <li><i class="fas fa-check"></i> Bis zu 5 Unterseiten</li>
+                  <li><i class="fas fa-check"></i> Kontaktformular</li>
+                  <li><i class="fas fa-check"></i> Basis SEO-Optimierung</li>
+                </ul>
+              </div>
+              <button
+                class="btn-add-to-cart"
+                data-id="starter"
+                data-name="Starter Paket"
+                data-price="599"
+              >
+                Hinzufügen
+              </button>
+            </div>
+
+            <div class="product-card" data-product-id="business">
+              <div class="product-header">
+                <h3>Business Paket</h3>
+                <span class="price">899 €</span>
+              </div>
+              <div class="product-content">
+                <p>
+                  Umfassende Webpräsenz für wachsende Unternehmen mit mehr
+                  Funktionalität.
+                </p>
+                <ul>
+                  <li><i class="fas fa-check"></i> Responsive Design</li>
+                  <li><i class="fas fa-check"></i> Bis zu 10 Unterseiten</li>
+                  <li>
+                    <i class="fas fa-check"></i> Erweitertes Kontaktformular
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Fortgeschrittene
+                    SEO-Optimierung
+                  </li>
+                  <li><i class="fas fa-check"></i> Google Maps Integration</li>
+                </ul>
+              </div>
+              <button
+                class="btn-add-to-cart"
+                data-id="business"
+                data-name="Business Paket"
+                data-price="899"
+              >
+                Hinzufügen
+              </button>
+            </div>
+
+            <div class="product-card" data-product-id="premium">
+              <div class="product-header">
+                <h3>Premium Paket</h3>
+                <span class="price">1499 €</span>
+              </div>
+              <div class="product-content">
+                <p>
+                  Voll ausgestattete Website mit individuellen Funktionen und
+                  umfassender Optimierung.
+                </p>
+                <ul>
+                  <li><i class="fas fa-check"></i> Individuelles Design</li>
+                  <li><i class="fas fa-check"></i> Unbegrenzte Unterseiten</li>
+                  <li><i class="fas fa-check"></i> Mehrsprachigkeit</li>
+                  <li><i class="fas fa-check"></i> Premium SEO-Paket</li>
+                  <li><i class="fas fa-check"></i> Social Media Integration</li>
+                  <li>
+                    <i class="fas fa-check"></i> Content-Management-System
+                  </li>
+                </ul>
+              </div>
+              <button
+                class="btn-add-to-cart"
+                data-id="premium"
+                data-name="Premium Paket"
+                data-price="1499"
+              >
+                Hinzufügen
+              </button>
+            </div>
+          </div>
+
+          <div class="product-grid hidden" id="service-products">
+            <!-- Additional Services -->
+            <div class="product-card" data-product-id="daily-service">
+              <div class="product-header">
+                <h3>Daily Service</h3>
+                <span class="price">49 €/Monat</span>
+              </div>
+              <div class="product-content">
+                <p>Tägliche Prüfung und Pflege Ihrer Webseite.</p>
+                <ul>
+                  <li><i class="fas fa-check"></i> Verfügbarkeitsprüfung</li>
+                  <li><i class="fas fa-check"></i> Kleine Updates</li>
+                  <li><i class="fas fa-check"></i> Regelmäßige Backups</li>
+                </ul>
+              </div>
+              <button
+                class="btn-add-to-cart"
+                data-id="daily-service"
+                data-name="Daily Service"
+                data-price="49"
+                data-recurring="monthly"
+              >
+                Hinzufügen
+              </button>
+            </div>
+
+            <div class="product-card" data-product-id="weekly-support">
+              <div class="product-header">
+                <h3>Wöchentlicher Support</h3>
+                <span class="price">29 €/Monat</span>
+              </div>
+              <div class="product-content">
+                <p>
+                  Regelmäßige Aktualisierungen und Support für Ihre Webseite.
+                </p>
+                <ul>
+                  <li><i class="fas fa-check"></i> Kleinere Änderungen</li>
+                  <li>
+                    <i class="fas fa-check"></i> Bild- und Textaktualisierungen
+                  </li>
+                  <li><i class="fas fa-check"></i> Bis zu 2 Stunden/Woche</li>
+                </ul>
+              </div>
+              <button
+                class="btn-add-to-cart"
+                data-id="weekly-support"
+                data-name="Wöchentlicher Support"
+                data-price="29"
+                data-recurring="monthly"
+              >
+                Hinzufügen
+              </button>
+            </div>
+
+            <div class="product-card" data-product-id="seo-basic">
+              <div class="product-header">
+                <h3>SEO-Basispaket</h3>
+                <span class="price">99 € einmalig</span>
+              </div>
+              <div class="product-content">
+                <p>
+                  Grundlegende Optimierung für bessere Sichtbarkeit in
+                  Suchmaschinen.
+                </p>
+                <ul>
+                  <li><i class="fas fa-check"></i> Keywordanalyse</li>
+                  <li><i class="fas fa-check"></i> On-Page-Optimierung</li>
+                  <li><i class="fas fa-check"></i> Meta-Beschreibungen</li>
+                </ul>
+              </div>
+              <button
+                class="btn-add-to-cart"
+                data-id="seo-basic"
+                data-name="SEO-Basispaket"
+                data-price="99"
+              >
+                Hinzufügen
+              </button>
+            </div>
+
+            <div class="product-card" data-product-id="security-updates">
+              <div class="product-header">
+                <h3>Sicherheitsupdates</h3>
+                <span class="price">10 €/Monat</span>
+              </div>
+              <div class="product-content">
+                <p>
+                  Regelmäßige Updates aller Komponenten zur Sicherheit Ihrer
+                  Webseite.
+                </p>
+                <ul>
+                  <li><i class="fas fa-check"></i> CMS-Updates</li>
+                  <li><i class="fas fa-check"></i> Plugin-Updates</li>
+                  <li><i class="fas fa-check"></i> Sicherheitsüberwachung</li>
+                </ul>
+              </div>
+              <button
+                class="btn-add-to-cart"
+                data-id="security-updates"
+                data-name="Sicherheitsupdates"
+                data-price="10"
+                data-recurring="monthly"
+              >
+                Hinzufügen
+              </button>
+            </div>
+            <div class="product-card hosting-product" data-product-id="hosting">
+              <div class="product-header">
+                <h3>Hosting</h3>
+                <span class="price">ab 15 €/Monat</span>
+              </div>
+              <div class="product-content">
+                <p>Zuverlässiges Hosting für Ihre Webseite.</p>
+
+                <div class="hosting-subcategories">
+                  <div class="hosting-subcategory">
+                    <h4>Basic Hosting</h4>
+                    <p>15 €/Monat</p>
+                    <ul>
+                      <li><i class="fas fa-check"></i> 5 GB Speicherplatz</li>
+                      <li><i class="fas fa-check"></i> 1 Domain</li>
+                      <li><i class="fas fa-check"></i> 5 E-Mail-Konten</li>
+                      <li><i class="fas fa-check"></i> SSL-Zertifikat</li>
+                    </ul>
+                    <button
+                      class="btn-add-to-cart"
+                      data-id="hosting-basic"
+                      data-name="Basic Hosting"
+                      data-price="15"
+                      data-recurring="monthly"
+                    >
+                      Hinzufügen
+                    </button>
+                  </div>
+
+                  <div class="hosting-subcategory">
+                    <h4>Business Hosting</h4>
+                    <p>25 €/Monat</p>
+                    <ul>
+                      <li><i class="fas fa-check"></i> 20 GB Speicherplatz</li>
+                      <li><i class="fas fa-check"></i> 3 Domains</li>
+                      <li><i class="fas fa-check"></i> 15 E-Mail-Konten</li>
+                      <li><i class="fas fa-check"></i> SSL-Zertifikat</li>
+                      <li><i class="fas fa-check"></i> Tägliche Backups</li>
+                    </ul>
+                    <button
+                      class="btn-add-to-cart"
+                      data-id="hosting-business"
+                      data-name="Business Hosting"
+                      data-price="25"
+                      data-recurring="monthly"
+                    >
+                      Hinzufügen
+                    </button>
+                  </div>
+
+                  <div class="hosting-subcategory">
+                    <h4>Premium Hosting</h4>
+                    <p>45 €/Monat</p>
+                    <ul>
+                      <li><i class="fas fa-check"></i> 50 GB Speicherplatz</li>
+                      <li><i class="fas fa-check"></i> 10 Domains</li>
+                      <li>
+                        <i class="fas fa-check"></i> Unbegrenzte E-Mail-Konten
+                      </li>
+                      <li>
+                        <i class="fas fa-check"></i> Premium SSL-Zertifikat
+                      </li>
+                      <li><i class="fas fa-check"></i> Tägliche Backups</li>
+                      <li>
+                        <i class="fas fa-check"></i> Erweiterte Sicherheit
+                      </li>
+                      <li>
+                        <i class="fas fa-check"></i> Priorisierter Support
+                      </li>
+                    </ul>
+                    <button
+                      class="btn-add-to-cart"
+                      data-id="hosting-premium"
+                      data-name="Premium Hosting"
+                      data-price="45"
+                      data-recurring="monthly"
+                    >
+                      Hinzufügen
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-product-id="content-creation">
+              <div class="product-header">
+                <h3>Content-Erstellung</h3>
+                <span class="price">nach Aufwand</span>
+              </div>
+              <div class="product-content">
+                <p>
+                  Professionelle Erstellung von Texten und Bildmaterial für Ihre
+                  Webseite.
+                </p>
+                <ul>
+                  <li><i class="fas fa-check"></i> Texterstellung</li>
+                  <li><i class="fas fa-check"></i> Bildbearbeitung</li>
+                  <li><i class="fas fa-check"></i> Medienoptimierung</li>
+                </ul>
+              </div>
+              <button
+                class="btn-add-to-cart"
+                data-id="content-creation"
+                data-name="Content-Erstellung"
+                data-price="0"
+                data-variable="true"
+              >
+                Anfragen
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="advantages" class="advantages">
+      <div class="container">
+        <div class="section-header">
+          <h2>Ihre Vorteile</h2>
+          <p>Warum Sie sich für Jontech entscheiden sollten</p>
+        </div>
+        <div class="advantage-cards">
+          <div class="advantage-card">
+            <div class="advantage-icon">
+              <i class="fas fa-euro-sign"></i>
+            </div>
+            <h3>Transparente Preisstruktur</h3>
+            <p>Faire und nachvollziehbare Preise ohne versteckte Kosten.</p>
+          </div>
+          <div class="advantage-card">
+            <div class="advantage-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h3>Schnelle Bereitstellung</h3>
+            <p>Durch modulare Templates ist eine zügige Umsetzung möglich.</p>
+          </div>
+          <div class="advantage-card">
+            <div class="advantage-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <h3>Keine unnötige Komplexität</h3>
+            <p>Einfach zu warten und zu aktualisieren.</p>
+          </div>
+          <div class="advantage-card">
+            <div class="advantage-icon">
+              <i class="fas fa-puzzle-piece"></i>
+            </div>
+            <h3>Flexible Service-Pakete</h3>
+            <p>Individuell an Ihre Bedürfnisse anpassbar.</p>
+          </div>
+          <div class="advantage-card">
+            <div class="advantage-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3>Persönlicher Support</h3>
+            <p>Direkter Kontakt und individuelle Betreuung.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="target-group" class="target-group">
+      <div class="container">
+        <div class="section-header">
+          <h2>Unsere Zielgruppe</h2>
+          <p>Für wen wir die perfekte Lösung sind</p>
+        </div>
+        <div class="target-content">
+          <div class="target-image">
+            <img src="img/zielgruppe.png" alt="Zielgruppe von Jontech" />
+          </div>
+          <div class="target-list">
+            <ul>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <strong>Kleine Unternehmen</strong> - Die eine professionelle
+                Online-Präsenz benötigen
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <strong>Selbstständige und Freelancer</strong> - Mit Fokus auf
+                das eigene Kerngeschäft
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <strong>Vereine und Organisationen</strong> - Die ihre
+                Aktivitäten online präsentieren möchten
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <strong>Lokale Dienstleister</strong> - Die von lokalen Kunden
+                gefunden werden wollen
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <strong>Kunden ohne IT-Kenntnisse</strong> - Die eine einfach zu
+                bedienende Lösung suchen
+              </li>
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <strong>Unternehmen mit Fokus auf Preis-Leistung</strong> - Die
+                keine überteuerten Lösungen wollen
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Kontaktieren Sie uns</h2>
+          <p>Wir freuen uns auf Ihre Nachricht</p>
+        </div>
+        <div class="contact-container">
+          <div class="contact-form">
+            <form id="contactForm">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Telefon</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+              <div class="form-group">
+                <label for="subject">Betreff</label>
+                <input type="text" id="subject" name="subject" required />
+              </div>
+              <div class="form-group">
+                <label for="message">Nachricht</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Selected Products Section -->
+              <div class="selected-products-section">
+                <h3>Ausgewählte Produkte</h3>
+                <div id="selected-products-list">
+                  <div class="empty-cart-message">
+                    Sie haben noch keine Produkte ausgewählt.
+                  </div>
+                  <!-- Selected products will be displayed here -->
+                </div>
+                <div class="form-group total-section" style="display: none">
+                  <div class="total-label">Gesamtsumme:</div>
+                  <div id="form-total-amount">0,00 €</div>
+                </div>
+              </div>
+              <!-- Bestätigungsdialog -->
+              <div
+                id="formResponseMessage"
+                class="form-response-message"
+                style="display: none"
+              ></div>
+
+              <div class="form-group">
+                <button type="submit" class="btn-primary">
+                  Anfrage senden
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="contact-info">
+            <div class="info-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <p>St. Gallen</p>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-envelope"></i>
+              <p>info@jontech.ch</p>
+            </div>
+            <div class="info-item">
+              <i class="fas fa-phone"></i>
+              <p>+49 123 456789</p>
+            </div>
+            <div class="social-links">
+              <a href="#" class="social-link"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>Jontech</h2>
+            <p>Moderne Webpräsenz ohne Komplexität</p>
+          </div>
+          <div class="footer-links">
+            <h3>Links</h3>
+            <ul>
+              <li><a href="#about">Über uns</a></li>
+              <li><a href="#services">Leistungen</a></li>
+              <li><a href="#packages">Pakete</a></li>
+              <li><a href="#advantages">Vorteile</a></li>
+              <li><a href="#contact">Kontakt</a></li>
+            </ul>
+          </div>
+          <div class="footer-services">
+            <h3>Services</h3>
+            <ul>
+              <li>Webseiten-Erstellung</li>
+              <li>SEO-Optimierung</li>
+              <li>Support & Wartung</li>
+              <li>Hosting</li>
+              <li>Content-Erstellung</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Jontech. Alle Rechte vorbehalten.</p>
+          <div class="footer-legal">
+            <a href="#">Impressum</a>
+            <a href="#">Datenschutz</a>
+            <a href="#">AGB</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

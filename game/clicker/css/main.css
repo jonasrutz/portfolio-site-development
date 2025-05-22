@@ -1,0 +1,64 @@
+:root {
+  /* Base colors */
+  --primary-color: #3d8064; /* Match achievement accent color */
+  --primary-color-rgb: 61, 128, 100;
+  --secondary-color: #81b29a; /* Match achievement secondary color */
+  --secondary-color-rgb: 129, 178, 154;
+  --accent-color: #3d8064; /* Match achievement accent color */
+  --accent-color-rgb: 61, 128, 100;
+
+  /* Text colors */
+  --text-color: #ffffff; /* Match achievement text color */
+  --text-color-secondary: #cccccc;
+  --text-color-light: #ffffff;
+
+  /* Background colors */
+  --bg-color: #1e1e1e; /* Match achievement background */
+  --card-bg: #2c2c2c; /* Match achievement card background */
+  --card-bg-rgb: 44, 44, 44;
+  --section-bg: #2c2c2c;
+
+  /* Border and shadow */
+  --border-color: #444444; /* Match achievement border */
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow: 0 2px 4px var(--shadow-color);
+  --hover-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  --border-radius: 8px;
+
+  /* Status colors */
+  --success-color: #2c7d59;
+  --info-color: #3498db;
+  --error-color: #e74c3c;
+  --warning-color: #f39c12;
+
+  /* Game-specific colors */
+  --forge-color: #d35400;
+  --xp-color: #9b59b6;
+  --gold-color: #f1c40f;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure text contrast in various components */
+.notification {
+  color: var(--text-color);
+}
+
+.notification.success {
+  border-left: 4px solid var(--success-color);
+}
+
+.notification.error {
+  border-left: 4px solid var(--error-color);
+}
+
+.notification.info {
+  border-left: 4px solid var(--info-color);
+}

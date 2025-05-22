@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cosmic Clicker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <header>
+        <h1>Cosmic Clicker</h1>
+        <div class="stats">
+          <div class="resource">
+            <i class="fas fa-star"></i>
+            <span id="resource-count">0</span> Stars
+          </div>
+          <div class="resource">
+            <i class="fas fa-bolt"></i>
+            <span id="per-second">0</span> Stars/sec
+          </div>
+          <div class="resource">
+            <i class="fas fa-hand-point-up"></i>
+            <span id="click-stats">0</span> Clicks
+          </div>
+          <div class="resource ascension-stat">
+            <i class="fas fa-superpowers"></i>
+            <span id="cosmic-dust">0</span> Cosmic Dust
+          </div>
+          <button id="achievements-btn" class="achievements-button">
+            <i class="fas fa-trophy"></i> Achievements
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <div class="clicker-area">
+          <button id="main-clicker">
+            <i class="fas fa-meteor fa-7x"></i>
+            <i class="fas fa-sun fa-7x"></i>
+          </button>
+          <div class="click-value">+<span id="click-value">1</span></div>
+        </div>
+
+        <div class="ascend-container">
+          <button id="ascend-button" class="ascend-btn" disabled>
+            <i class="fas fa-superpowers"></i> Ascend
+            <span class="ascend-dust"
+              >+<span id="ascend-dust-gain">0</span> Cosmic Dust</span
+            >
+          </button>
+          <div class="ascend-info">
+            Reach 10,000 stars to ascend and gain Cosmic Dust
+          </div>
+        </div>
+
+        <div class="upgrades-section">
+          <h2>Upgrades <i class="fas fa-arrow-up"></i></h2>
+          <div class="upgrades-container">
+            <div class="upgrade" id="click-upgrade">
+              <div class="upgrade-icon">
+                <i class="fas fa-hand-pointer"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Better Clicking</h3>
+                <p>Stars per click: <span id="click-level">1</span></p>
+                <p>Cost: <span id="click-cost">10</span> stars</p>
+              </div>
+              <button class="buy-btn">Buy</button>
+            </div>
+
+            <div class="upgrade" id="click-multiplier">
+              <div class="upgrade-icon">
+                <i class="fas fa-meteor"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Click Multiplier</h3>
+                <p>Multiplier: <span id="multiplier-level">1</span>x</p>
+                <p>Cost: <span id="multiplier-cost">100</span> stars</p>
+              </div>
+              <button class="buy-btn">Buy</button>
+            </div>
+
+            <div class="upgrade" id="auto-clicker">
+              <div class="upgrade-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Auto Clicker</h3>
+                <p>Auto clickers: <span id="auto-level">0</span></p>
+                <p>Cost: <span id="auto-cost">50</span> stars</p>
+              </div>
+              <button class="buy-btn">Buy</button>
+            </div>
+
+            <div class="upgrade" id="star-booster">
+              <div class="upgrade-icon">
+                <i class="fas fa-rocket"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Star Booster</h3>
+                <p>Boosters: <span id="booster-level">0</span></p>
+                <p>Cost: <span id="booster-cost">200</span> stars</p>
+              </div>
+              <button class="buy-btn">Buy</button>
+            </div>
+
+            <div class="upgrade" id="star-factory">
+              <div class="upgrade-icon">
+                <i class="fas fa-industry"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Star Factory</h3>
+                <p>Factories: <span id="factory-level">0</span></p>
+                <p>Cost: <span id="factory-cost">1000</span> stars</p>
+              </div>
+              <button class="buy-btn">Buy</button>
+            </div>
+
+            <div class="upgrade" id="star-galaxy">
+              <div class="upgrade-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Star Galaxy</h3>
+                <p>Galaxies: <span id="galaxy-level">0</span></p>
+                <p>Cost: <span id="galaxy-cost">5000</span> stars</p>
+                <p class="upgrade-description">Produces 50 stars/sec</p>
+              </div>
+              <button class="buy-btn">Buy</button>
+            </div>
+
+            <div class="upgrade" id="star-wormhole">
+              <div class="upgrade-icon">
+                <i class="fas fa-spinner"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Star Wormhole</h3>
+                <p>Wormholes: <span id="wormhole-level">0</span></p>
+                <p>Cost: <span id="wormhole-cost">20000</span> stars</p>
+                <p class="upgrade-description">Produces 200 stars/sec</p>
+              </div>
+              <button class="buy-btn">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="cosmic-upgrades-section">
+          <h2>Cosmic Upgrades <i class="fas fa-superpowers"></i></h2>
+          <div class="upgrades-container">
+            <div class="upgrade cosmic-upgrade" id="cosmic-click">
+              <div class="upgrade-icon">
+                <i class="fas fa-hand-sparkles"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Cosmic Clicking</h3>
+                <p>
+                  Permanent click power: <span id="cosmic-click-level">0</span>%
+                </p>
+                <p>Cost: <span id="cosmic-click-cost">1</span> cosmic dust</p>
+                <p class="upgrade-description">
+                  +5% stars per click (permanent)
+                </p>
+              </div>
+              <button class="buy-btn cosmic-btn">Buy</button>
+            </div>
+
+            <div class="upgrade cosmic-upgrade" id="cosmic-production">
+              <div class="upgrade-icon">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Cosmic Production</h3>
+                <p>
+                  Production boost: <span id="cosmic-production-level">0</span>%
+                </p>
+                <p>
+                  Cost: <span id="cosmic-production-cost">1</span> cosmic dust
+                </p>
+                <p class="upgrade-description">
+                  +5% stars per second (permanent)
+                </p>
+              </div>
+              <button class="buy-btn cosmic-btn">Buy</button>
+            </div>
+
+            <div class="upgrade cosmic-upgrade" id="cosmic-start">
+              <div class="upgrade-icon">
+                <i class="fas fa-play-circle"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Cosmic Start</h3>
+                <p>Starting stars: <span id="cosmic-start-level">0</span></p>
+                <p>Cost: <span id="cosmic-start-cost">2</span> cosmic dust</p>
+                <p class="upgrade-description">
+                  Start with 1000 more stars after ascension
+                </p>
+              </div>
+              <button class="buy-btn cosmic-btn">Buy</button>
+            </div>
+
+            <div class="upgrade cosmic-upgrade" id="cosmic-luck">
+              <div class="upgrade-icon">
+                <i class="fas fa-dice"></i>
+              </div>
+              <div class="upgrade-info">
+                <h3>Cosmic Luck</h3>
+                <p>Lucky star chance: <span id="cosmic-luck-level">0</span>%</p>
+                <p>Cost: <span id="cosmic-luck-cost">3</span> cosmic dust</p>
+                <p class="upgrade-description">
+                  Chance for lucky stars on click
+                </p>
+              </div>
+              <button class="buy-btn cosmic-btn">Buy</button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>Created by Lumjos | <span id="current-date"></span></p>
+      </footer>
+    </div>
+
+    <!-- Modal für Achievements -->
+    <div id="achievements-modal" class="modal">
+      <div class="modal-content achievements-modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-trophy"></i> Achievements</h2>
+          <button id="close-achievements" class="close-modal-btn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="achievements-container">
+          <!-- Resource Achievements -->
+          <div class="achievement locked" id="achievement-1">
+            <i class="fas fa-medal"></i>
+            <p>Star Novice</p>
+            <span class="tooltip">Reach 100 stars</span>
+          </div>
+          <div class="achievement locked" id="achievement-2">
+            <i class="fas fa-medal"></i>
+            <p>Star Expert</p>
+            <span class="tooltip">Reach 1,000 stars</span>
+          </div>
+          <div class="achievement locked" id="achievement-3">
+            <i class="fas fa-crown"></i>
+            <p>Star Master</p>
+            <span class="tooltip">Reach 10,000 stars</span>
+          </div>
+          <div class="achievement locked" id="achievement-4">
+            <i class="fas fa-crown"></i>
+            <p>Galactic Emperor</p>
+            <span class="tooltip">Reach 100,000 stars</span>
+          </div>
+          <div class="achievement locked" id="achievement-5">
+            <i class="fas fa-sun"></i>
+            <p>Star God</p>
+            <span class="tooltip">Reach 1,000,000 stars</span>
+          </div>
+
+          <!-- Click Achievements -->
+          <div class="achievement locked" id="achievement-6">
+            <i class="fas fa-hand-point-up"></i>
+            <p>Clicking Starter</p>
+            <span class="tooltip">Click 10 times</span>
+          </div>
+          <div class="achievement locked" id="achievement-7">
+            <i class="fas fa-hand-point-up"></i>
+            <p>Clicking Pro</p>
+            <span class="tooltip">Click 100 times</span>
+          </div>
+          <div class="achievement locked" id="achievement-8">
+            <i class="fas fa-hand-point-up"></i>
+            <p>Clicking Master</p>
+            <span class="tooltip">Click 1,000 times</span>
+          </div>
+
+          <!-- Upgrade Achievements -->
+          <div class="achievement locked" id="achievement-9">
+            <i class="fas fa-arrow-up"></i>
+            <p>First Upgrade</p>
+            <span class="tooltip">Buy your first upgrade</span>
+          </div>
+          <div class="achievement locked" id="achievement-10">
+            <i class="fas fa-arrow-up"></i>
+            <p>Getting Stronger</p>
+            <span class="tooltip">Buy 5 upgrades</span>
+          </div>
+          <div class="achievement locked" id="achievement-11">
+            <i class="fas fa-check-square"></i>
+            <p>Upgrade Collector</p>
+            <span class="tooltip">Have at least 1 of each upgrade type</span>
+          </div>
+          <div class="achievement locked" id="achievement-12">
+            <i class="fas fa-bolt"></i>
+            <p>Star Factory</p>
+            <span class="tooltip">Reach 100 stars per second</span>
+          </div>
+
+          <!-- Ascension Achievements -->
+          <div class="achievement locked" id="achievement-13">
+            <i class="fas fa-superpowers"></i>
+            <p>First Ascension</p>
+            <span class="tooltip">Ascend for the first time</span>
+          </div>
+          <div class="achievement locked" id="achievement-14">
+            <i class="fas fa-superpowers"></i>
+            <p>Cosmic Power</p>
+            <span class="tooltip">Collect 10 Cosmic Dust</span>
+          </div>
+          <div class="achievement locked" id="achievement-15">
+            <i class="fas fa-superpowers"></i>
+            <p>Cosmic Master</p>
+            <span class="tooltip">Ascend 5 times</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Ascension Confirmation -->
+    <div id="ascension-modal" class="modal">
+      <div class="modal-content">
+        <h2><i class="fas fa-superpowers"></i> Cosmic Ascension</h2>
+        <p>Are you sure you want to ascend?</p>
+        <p>
+          You will gain
+          <strong><span id="modal-dust-gain">0</span> Cosmic Dust</strong>
+        </p>
+        <p>You will lose all your stars and upgrades, but keep:</p>
+        <ul>
+          <li>All Cosmic Dust</li>
+          <li>All Cosmic Upgrades</li>
+          <li>All Achievements</li>
+        </ul>
+        <div class="modal-buttons">
+          <button id="cancel-ascend" class="modal-btn cancel-btn">
+            Cancel
+          </button>
+          <button id="confirm-ascend" class="modal-btn confirm-btn">
+            Ascend
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/game.js"></script>
+  </body>
+</html>

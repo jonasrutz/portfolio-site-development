@@ -177,7 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
         
         if (searchTerm.length > 2) {
           // In a full implementation, this would show suggestions
-          // This is a simplified version
         }
       });
     }
@@ -186,6 +185,17 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateProgress() {
     let completedItems = 0;
     const totalItems = tenseCards.length + document.querySelectorAll(".exercise").length;
+    
+    // Count completed tense cards
+    document.querySelectorAll(".tense-card[data-viewed='true']").forEach(() => {
+      completedItems++;
+    });
+    
+    // Count completed exercises
+    document.querySelectorAll(".exercise[data-completed='true']").forEach(() => {
+      completedItems++;
+    });
+    
     const progressPercent = Math.min(Math.round((completedItems / totalItems) * 100), 100);
     
     const progressValue = document.getElementById("progress-value");
@@ -222,27 +232,81 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   
   function saveUserProgress() {
-    // In a full implementation, this would save to localStorage
-    // Example:
-    // localStorage.setItem("tensesProgress", JSON.stringify({
-    //   completedItems: completedItems,
-    //   viewedCards: Array.from(document.querySelectorAll(".tense-card[data-viewed='true']")).map(card => card.querySelector("h3").textContent)
-    // }));
+    // Save progress to localStorage
+    const completedCards = Array.from(document.querySelectorAll(".tense-card[data-viewed='true']"))
+      .map(card => card.querySelector("h3").textContent);
+    
+    const completedExercises = Array.from(document.querySelectorAll(".exercise[data-completed='true']"))
+      .map((exercise, index) => "exercise-" + index);
+    
+    localStorage.setItem("tensesProgress", JSON.stringify({
+      completedCards: completedCards,
+      completedExercises: completedExercises,
+      lastVisited: Date.now()
+    }));
   }
   
   function loadUserProgress() {
-    // In a full implementation, this would load from localStorage
-    // Example:
-    // const savedProgress = JSON.parse(localStorage.getItem("tensesProgress"));
-    // if (savedProgress) {
-    //   completedItems = savedProgress.completedItems;
-    //   updateProgress();
-    // }
+    // Load progress from localStorage
+    const savedProgress = JSON.parse(localStorage.getItem("tensesProgress"));
+    
+    if (savedProgress) {
+      // Mark cards as viewed
+      savedProgress.completedCards.forEach(cardTitle => {
+        document.querySelectorAll(".tense-card h3").forEach(card => {
+          if (card.textContent === cardTitle) {
+            card.parentElement.dataset.viewed = "true";
+          }
+        });
+      });
+      
+      // Mark exercises as completed
+      savedProgress.completedExercises.forEach(exerciseId => {
+        const index = parseInt(exerciseId.split("-")[1]);
+        const exercises = document.querySelectorAll(".exercise");
+        if (exercises[index]) {
+          exercises[index].dataset.completed = "true";
+        }
+      });
+      
+      // Update the progress bar
+      updateProgress();
+    }
   }
   
   function playSound(type) {
-    // In a full implementation, this would play success/error sounds
-    // This is a simplified version
+    // Play sound effects for interactions
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    
+    if (type === "success") {
+      const oscillator = audioContext.createOscillator();
+      oscillator.type = "sine";
+      oscillator.frequency.setValueAtTime(880, audioContext.currentTime); // A5
+      
+      const gainNode = audioContext.createGain();
+      gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.5);
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.5);
+    } else if (type === "error") {
+      const oscillator = audioContext.createOscillator();
+      oscillator.type = "square";
+      oscillator.frequency.setValueAtTime(220, audioContext.currentTime); // A3
+      
+      const gainNode = audioContext.createGain();
+      gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.3);
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.3);
+    }
   }
   
   function performSearch() {
@@ -415,27 +479,31 @@ document.addEventListener("DOMContentLoaded", function () {
       hamburgerIcon.addEventListener("click", function() {
         this.classList.toggle("active");
         navLinks.classList.toggle("show");
-        overlay.classList.toggle("active");
+        if (overlay) overlay.classList.toggle("active");
         document.body.classList.toggle("menu-open");
       });
       
       // Close menu when clicking overlay
-      overlay.addEventListener("click", function() {
-        hamburgerIcon.classList.remove("active");
-        navLinks.classList.remove("show");
-        overlay.classList.remove("active");
-        document.body.classList.remove("menu-open");
-      });
-      
-      // Close menu when clicking a link
-      navLinks.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", function() {
+      if (overlay) {
+        overlay.addEventListener("click", function() {
           hamburgerIcon.classList.remove("active");
           navLinks.classList.remove("show");
-          overlay.classList.remove("active");
+          this.classList.remove("active");
           document.body.classList.remove("menu-open");
         });
-      });
+      }
+      
+      // Close menu when clicking a link
+      if (navLinks) {
+        navLinks.querySelectorAll("a").forEach(link => {
+          link.addEventListener("click", function() {
+            hamburgerIcon.classList.remove("active");
+            navLinks.classList.remove("show");
+            if (overlay) overlay.classList.remove("active");
+            document.body.classList.remove("menu-open");
+          });
+        });
+      }
     }
   }
 });
